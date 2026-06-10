@@ -26,3 +26,4 @@ C:\Users\tilah\OneDrive\Desktop\module4-API\m4-lab-session1\obj\Debug\net10.0\re
 C:\Users\tilah\OneDrive\Desktop\module4-API\m4-lab-session1\obj\Debug\net10.0\m4-lab-session1.pdb
 C:\Users\tilah\OneDrive\Desktop\module4-API\m4-lab-session1\obj\Debug\net10.0\m4-lab-session1.genruntimeconfig.cache
 C:\Users\tilah\OneDrive\Desktop\module4-API\m4-lab-session1\obj\Debug\net10.0\ref\m4-lab-session1.dll
+C:\Users\tilah\OneDrive\Desktop\module4-API\m4-lab-session1\obj\Debug\net10.0\m4-lab-session1.sourcelink.json
