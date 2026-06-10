@@ -1,0 +1,6 @@
+@m4_lab_session1_HostAddress = http://localhost:5063
+
+GET {{m4_lab_session1_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
