@@ -120,7 +120,7 @@ builder.Services
 // M4 Session 3
 builder.Services.AddControllers();
 builder.Services.AddProblemDetails();
-//builder.Services.AddOpenApi();
+builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
@@ -130,7 +130,7 @@ var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    //app.MapOpenApi();
+    app.MapOpenApi();
     app.MapScalarApiReference();
 }
 
