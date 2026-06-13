@@ -89,10 +89,10 @@ using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// =========================
-// Services
-// =========================
 
+
+
+// Services
 builder.Services.AddSingleton<EnrollmentWorker>();
 
 builder.Services.AddScoped<IEnrollmentService, EnrollmentService>();
@@ -124,20 +124,18 @@ builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
-// =========================
-// Development only
-// =========================
 
+
+// Development only
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
     app.MapScalarApiReference();
 }
 
-// =========================
-// Middleware
-// =========================
 
+
+// Middleware
 app.UseMiddleware<RequestLoggingMiddleware>();
 
 app.UseExceptionHandler();
@@ -150,16 +148,14 @@ app.UseAuthentication();
 
 app.UseAuthorization();
 
-// =========================
-// Controllers
-// =========================
 
+
+// Controllers
 app.MapControllers();
 
-// =========================
-// Existing endpoint
-// =========================
 
+
+// Existing endpoint
 app.MapGet("/api/assessments/results", () =>
 {
     return Results.Ok(new
@@ -171,10 +167,9 @@ app.MapGet("/api/assessments/results", () =>
 })
 .RequireAuthorization();
 
-// =========================
-// Worker smoke test
-// =========================
 
+
+// Worker smoke test
 app.MapGet("/api/enrollments/worker-smoke",
     (EnrollmentWorker worker) =>
 {
@@ -182,10 +177,10 @@ app.MapGet("/api/enrollments/worker-smoke",
     return Results.Ok("Processed");
 });
 
-// =========================
-// ProblemDetails test
-// =========================
 
+
+
+// ProblemDetails test
 app.MapGet("/api/error", () =>
 {
     throw new Exception("Simulated database failure");
