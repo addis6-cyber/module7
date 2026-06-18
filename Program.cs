@@ -86,6 +86,8 @@ app.Run();*/
 
 using Microsoft.AspNetCore.Authentication;
 using Scalar.AspNetCore;
+using Microsoft.EntityFrameworkCore;
+using TmsApi.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -107,6 +109,15 @@ builder.Services
     .AddAuthentication("Training")
     .AddScheme<AuthenticationSchemeOptions, TrainingAuthHandler>(
         "Training", null);
+
+
+//builder.Services.AddDbContext<TmsDbContext>(options =>options.UseNpgsql(builder.Configuration.GetConnectionString("TmsDatabase")));
+builder.Services.AddDbContext<TmsDbContext>(options =>
+    options.UseNpgsql(
+        builder.Configuration.GetConnectionString("TmsDatabase"))
+    .LogTo(Console.WriteLine, LogLevel.Information)
+    .EnableSensitiveDataLogging());
+
 
 builder.Services.AddAuthorization();
 
@@ -185,5 +196,14 @@ app.MapGet("/api/error", () =>
 {
     throw new Exception("Simulated database failure");
 });
+
+
+//Get the Database Context
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider
+        .GetRequiredService<TmsDbContext>();
+}
+
 
 app.Run();

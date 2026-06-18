@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\CSUG\\Desktop\\module4\\module4\\m4-lab-session3.csproj": {}
+    "C:\\Users\\CSUG\\Desktop\\module\\module4\\m4-lab-session3.csproj": {}
   },
   "projects": {
-    "C:\\Users\\CSUG\\Desktop\\module4\\module4\\m4-lab-session3.csproj": {
+    "C:\\Users\\CSUG\\Desktop\\module\\module4\\m4-lab-session3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\CSUG\\Desktop\\module4\\module4\\m4-lab-session3.csproj",
+        "projectUniqueName": "C:\\Users\\CSUG\\Desktop\\module\\module4\\m4-lab-session3.csproj",
         "projectName": "m4-lab-session3",
-        "projectPath": "C:\\Users\\CSUG\\Desktop\\module4\\module4\\m4-lab-session3.csproj",
+        "projectPath": "C:\\Users\\CSUG\\Desktop\\module\\module4\\m4-lab-session3.csproj",
         "packagesPath": "C:\\Users\\CSUG\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\CSUG\\Desktop\\module4\\module4\\obj\\",
+        "outputPath": "C:\\Users\\CSUG\\Desktop\\module\\module4\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\CSUG\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -49,6 +49,22 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[10.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[10.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[10.0.9, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[10.0.2, )"
             },
             "Scalar.AspNetCore": {
               "target": "Package",
