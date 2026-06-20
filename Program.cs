@@ -88,6 +88,8 @@ using Microsoft.AspNetCore.Authentication;
 using Scalar.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using TmsApi.Data;
+using TmsApi.Entities;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -203,6 +205,117 @@ using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider
         .GetRequiredService<TmsDbContext>();
+
+        // Apply any pending migrations
+    context.Database.Migrate();
+
+
+    
+
+
+
+    // Check if the Students table is empty
+    if (!context.Students.Any())
+    {
+        //Console.WriteLine(context.Students.Any());
+        var students = new[]
+{
+    new Student
+    {
+        RegistrationNumber = "S001",
+        Name = "Alice",
+        GPA = 3.8m,
+        IsActive = true
+    },
+
+    new Student
+    {
+        RegistrationNumber = "S002",
+        Name = "Bob",
+        GPA = 2.9m,
+        IsActive = true
+    },
+
+    new Student
+    {
+        RegistrationNumber = "S003",
+        Name = "Charlie",
+        GPA = 3.4m,
+        IsActive = false
+    }
+};
+        context.Students.AddRange(students);
+        context.SaveChanges();
+
+
+    //courses
+    var courses = new[]
+{
+    new Course
+    {
+        Code = "CS101",
+        Title = "Introduction to Programming",
+        Capacity = 30
+    },
+
+    new Course
+    {
+        Code = "CS102",
+        Title = "Database Systems",
+        Capacity = 25
+    },
+
+    new Course
+    {
+        Code = "CS103",
+        Title = "Web Development",
+        Capacity = 20
+    }
+};
+
+    context.Courses.AddRange(courses);
+    context.SaveChanges();
+
+
+    //Enrollments
+    var enrollments = new[]
+{
+    new Enrollment
+    {
+        StudentId = students[0].Id,
+        CourseId = courses[0].Id,
+        EnrolledAt = DateTime.UtcNow
+    },
+
+    new Enrollment
+    {
+        StudentId = students[0].Id,
+        CourseId = courses[1].Id,
+        EnrolledAt = DateTime.UtcNow
+    },
+
+    new Enrollment
+    {
+        StudentId = students[1].Id,
+        CourseId = courses[0].Id,
+        EnrolledAt = DateTime.UtcNow
+    },
+
+    new Enrollment
+    {
+        StudentId = students[2].Id,
+        CourseId = courses[2].Id,
+        EnrolledAt = DateTime.UtcNow
+    }
+};
+
+context.Enrollments.AddRange(enrollments);
+context.SaveChanges();
+
+
+
+    }
+
 }
 
 
