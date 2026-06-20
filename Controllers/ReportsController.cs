@@ -91,4 +91,42 @@ public IActionResult StudentCourses()
 
     return Ok(result);
 }
+//m5-lab-session2
+//pagination endpoint
+[HttpGet("students")]
+public IActionResult Students(int page = 1)
+{
+    const int pageSize = 20;
+
+    var students = _context.Students
+        .OrderBy(s => s.Name)
+        .Skip((page - 1) * pageSize)
+        .Take(pageSize)
+        .Select(s => new
+        {
+            s.Id,
+            s.Name,
+            s.GPA
+        })
+        .ToList();
+
+    return Ok(students);
+}
+
+//Exercise 3 - Step 2
+[HttpGet("top-courses")]
+public IActionResult TopCourses()
+{
+    var result = _context.Courses
+        .Select(c => new
+        {
+            c.Title,
+            EnrollmentCount = c.Enrollments.Count()
+        })
+        .OrderByDescending(c => c.EnrollmentCount)
+        .Take(5)
+        .ToList();
+
+    return Ok(result);
+}
 }
