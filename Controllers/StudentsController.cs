@@ -137,4 +137,54 @@ public IActionResult GetSafeStudents()
 
     return Ok(students);
 }
+
+//Add a No-Tracking Endpoint
+[HttpGet("no-tracking")]
+public IActionResult GetStudentsNoTracking()
+{
+    var students = _context.Students
+        .AsNoTracking()
+        .Select(s => new
+        {
+            s.Id,
+            s.Name,
+            s.GPA
+        })
+        .ToList();
+
+    return Ok(students);
+}
+//Compare Tracking
+[HttpGet("tracking-demo")]
+public IActionResult TrackingDemo()
+{
+    // Get a tracked entity
+    var student = _context.Students.First();
+
+    // Modify it
+    student.Name = "Updated Name";
+
+    // Save changes
+    _context.SaveChanges();
+
+    return Ok(student);
+}
+
+//See what happens with AsNoTracking()
+[HttpGet("no-tracking-demo")]
+public IActionResult NoTrackingDemo()
+{
+    // Get an untracked entity
+    var student = _context.Students
+        .AsNoTracking()
+        .First();
+
+    // Change its name
+    student.Name = "No Tracking Student";
+
+    // Try to save
+    _context.SaveChanges();
+
+    return Ok(student);
+}
 }
