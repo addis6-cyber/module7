@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tilah\\OneDrive\\Desktop\\New folder (4)\\module5\\m4-lab-session3.csproj": {}
+    "C:\\Users\\tilah\\OneDrive\\Desktop\\module\\module5\\m4-lab-session3.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tilah\\OneDrive\\Desktop\\New folder (4)\\module5\\m4-lab-session3.csproj": {
+    "C:\\Users\\tilah\\OneDrive\\Desktop\\module\\module5\\m4-lab-session3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tilah\\OneDrive\\Desktop\\New folder (4)\\module5\\m4-lab-session3.csproj",
+        "projectUniqueName": "C:\\Users\\tilah\\OneDrive\\Desktop\\module\\module5\\m4-lab-session3.csproj",
         "projectName": "m4-lab-session3",
-        "projectPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\New folder (4)\\module5\\m4-lab-session3.csproj",
+        "projectPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\module\\module5\\m4-lab-session3.csproj",
         "packagesPath": "C:\\Users\\tilah\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\New folder (4)\\module5\\obj\\",
+        "outputPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\module\\module5\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\tilah\\AppData\\Roaming\\NuGet\\NuGet.Config"

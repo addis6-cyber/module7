@@ -54,5 +54,20 @@ private bool IsExcellentStudent(Student student)
 {
     return student.GPA >= 3.5m;
 }
+
+//Exercise5 Test the Restrict Behavior
+[HttpDelete("delete-course/{id}")]
+public IActionResult DeleteCourse(int id)
+{
+    var course = _context.Courses.Find(id);
+
+    if (course == null)
+        return NotFound();
+
+    _context.Courses.Remove(course);
+    _context.SaveChanges();
+
+    return Ok("Course deleted.");
+}
 }
 
