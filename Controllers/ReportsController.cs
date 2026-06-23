@@ -91,12 +91,14 @@ public IActionResult StudentCourses()
 
     return Ok(result);
 }
+
+
 //m5-lab-session2
 //pagination endpoint
 [HttpGet("students")]
 public IActionResult Students(int page = 1)
 {
-    const int pageSize = 20;
+    const int pageSize = 2;
 
     var students = _context.Students
         .OrderBy(s => s.Name)

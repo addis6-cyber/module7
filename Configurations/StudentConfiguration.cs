@@ -19,7 +19,7 @@ public class StudentConfiguration : IEntityTypeConfiguration<Student>
         // Student Name
         builder.Property(s => s.Name)
             .IsRequired()
-            .HasMaxLength(100);
+            .HasMaxLength(10);
 
         // GPA
         builder.Property(s => s.GPA)

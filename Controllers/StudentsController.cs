@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TmsApi.Data;
+using TmsApi.Models;
+using TmsApi.Entities;
 
 namespace TmsApi.Controllers;
 
@@ -186,5 +188,25 @@ public IActionResult NoTrackingDemo()
     _context.SaveChanges();
 
     return Ok(student);
+}
+
+[HttpPost]
+public IActionResult CreateStudent(CreateStudentDto dto)
+{
+    var student = new Student
+    {
+        RegistrationNumber = dto.RegistrationNumber,
+        Name = dto.Name,
+        GPA = dto.GPA,
+        IsActive = dto.IsActive
+    };
+
+    _context.Students.Add(student);
+    _context.SaveChanges();
+
+    return CreatedAtAction(
+        nameof(GetStudent),
+        new { registrationNumber = student.RegistrationNumber },
+        student);
 }
 }
