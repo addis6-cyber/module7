@@ -2288,11 +2288,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\CSUG\\Desktop\\module\\module5\\m5-lab-session2.csproj",
-      "projectName": "m5-lab-session2",
-      "projectPath": "C:\\Users\\CSUG\\Desktop\\module\\module5\\m5-lab-session2.csproj",
+      "projectUniqueName": "c:\\Users\\CSUG\\Desktop\\module\\module5\\m5-lab-session3.csproj",
+      "projectName": "m5-lab-session3",
+      "projectPath": "c:\\Users\\CSUG\\Desktop\\module\\module5\\m5-lab-session3.csproj",
       "packagesPath": "C:\\Users\\CSUG\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\CSUG\\Desktop\\module\\module5\\obj\\",
+      "outputPath": "c:\\Users\\CSUG\\Desktop\\module\\module5\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\CSUG\\AppData\\Roaming\\NuGet\\NuGet.Config"
