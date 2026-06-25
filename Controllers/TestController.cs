@@ -69,5 +69,68 @@ public IActionResult DeleteCourse(int id)
 
     return Ok("Course deleted.");
 }
+
+//Exercise 7 - Part A: Demonstrate the N+1 Query Problem
+[HttpGet("nplus1")]
+public IActionResult NPlusOne()
+{
+    var students = _context.Students.ToList();
+
+    foreach (var student in students)
+    {
+        var count = _context.Enrollments
+            .Count(e => e.StudentId == student.Id);
+
+        Console.WriteLine($"{student.Name}: {count} enrollments");
+    }
+
+    return Ok("Finished");
+}
+
+
+//Exercise 7 - Part B: Fix the N+1 Problem
+[HttpGet("nplus1-fixed")]
+public IActionResult NPlusOneFixed()
+{
+    var students = _context.Students
+        .Select(s => new
+        {
+            s.Name,
+            EnrollmentCount = s.Enrollments.Count()
+        })
+        .ToList();
+
+    return Ok(students);
+}
+
+// Exercise 9 - Bulk Update
+[HttpPost("archive")]
+public IActionResult ArchiveStudents()
+{
+    var students = _context.Students
+        .Where(s => s.GPA < 3.0m)
+        .ToList();
+
+    foreach (var student in students)
+    {
+        student.IsActive = false;
+    }
+
+    _context.SaveChanges();
+
+    return Ok($"{students.Count} students archived.");
+}
+
+//All Students (active and inactive) 
+[HttpGet("all-students")]
+public IActionResult AllStudents()
+{
+    var students = _context.Students
+        .IgnoreQueryFilters()
+        .ToList();
+
+    return Ok(students);
+}
+
 }
 

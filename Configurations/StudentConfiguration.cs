@@ -28,5 +28,9 @@ public class StudentConfiguration : IEntityTypeConfiguration<Student>
         // IsActive
         builder.Property(s => s.IsActive)
             .IsRequired();
+
+    
+    //Exercise 8 – Shadow Properties
+      builder.Property<DateTime>("LastUpdated");      
     }
 }

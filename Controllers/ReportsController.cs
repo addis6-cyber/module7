@@ -98,7 +98,7 @@ public IActionResult StudentCourses()
 [HttpGet("students")]
 public IActionResult Students(int page = 1)
 {
-    const int pageSize = 2;
+    const int pageSize = 10;
 
     var students = _context.Students
         .OrderBy(s => s.Name)

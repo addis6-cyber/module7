@@ -13,5 +13,9 @@ public DbSet<Enrollment> Enrollments => Set<Enrollment>();
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(TmsDbContext).Assembly);
 
          base.OnModelCreating(modelBuilder);
+
+        //Exercise 9-Part B Global Query Filter (Soft Delete)
+         modelBuilder.Entity<Student>()
+            .HasQueryFilter(s => s.IsActive);
     }
 }
