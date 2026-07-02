@@ -2283,19 +2283,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\CSUG\\.nuget\\packages\\": {}
+    "C:\\Users\\tilah\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\CSUG\\Desktop\\module\\module5\\m5-lab-session3.csproj",
+      "projectUniqueName": "C:\\Users\\tilah\\OneDrive\\Desktop\\module\\module5\\m5-lab-session3.csproj",
       "projectName": "m5-lab-session3",
-      "projectPath": "c:\\Users\\CSUG\\Desktop\\module\\module5\\m5-lab-session3.csproj",
-      "packagesPath": "C:\\Users\\CSUG\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\CSUG\\Desktop\\module\\module5\\obj\\",
+      "projectPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\module\\module5\\m5-lab-session3.csproj",
+      "packagesPath": "C:\\Users\\tilah\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\module\\module5\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\CSUG\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\tilah\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
@@ -2371,7 +2371,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.300/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.AspNetCore": "(,10.0.32767]",
           "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
@@ -2788,5 +2788,17 @@
         }
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.OpenApi' 2.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc",
+      "libraryId": "Microsoft.OpenApi",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
 }

@@ -9,7 +9,7 @@ public class CreateStudentDto
     public string RegistrationNumber { get; set; } = string.Empty;
 
     [Required]
-    [MaxLength(10, ErrorMessage = "Name cannot be more than 10 characters.")]
+    [MaxLength(100, ErrorMessage = "Name cannot be more than 100 characters.")]
     public string Name { get; set; } = string.Empty;
 
     [Range(0, 4)]

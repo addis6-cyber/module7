@@ -89,7 +89,8 @@ using Scalar.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using TmsApi.Data;
 using TmsApi.Entities;
-
+//module 6
+using TmsApi.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -100,6 +101,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSingleton<EnrollmentWorker>();
 
 builder.Services.AddScoped<IEnrollmentService, EnrollmentService>();
+//module 6
+builder.Services.AddScoped<IStudentRepository, StudentRepository>();
 
 builder.Host.UseDefaultServiceProvider(options =>
 {
