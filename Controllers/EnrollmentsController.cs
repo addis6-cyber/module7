@@ -1,7 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
+using TmsApi.Dtos;
+using TmsApi.Services;
+
+namespace TmsApi.Controllers;
 
 [ApiController]
-[Route("api/enrollments")]
+[Route("api/courses/{courseId}/enrollments")]
 public class EnrollmentsController : ControllerBase
 {
     private readonly IEnrollmentService _service;
@@ -11,48 +15,22 @@ public class EnrollmentsController : ControllerBase
         _service = service;
     }
 
-    [HttpGet]
-    public async Task<IActionResult> GetAll()
-    {
-        var data = await _service.GetAllAsync();
-        return Ok(data);
-    }
-
-    [HttpGet("{id}")]
-    public async Task<IActionResult> GetById(string id)
-    {
-        var data = await _service.GetByIdAsync(id);
-
-        if (data == null)
-            return NotFound();
-
-        return Ok(data);
-    }
-
     [HttpPost]
-    public async Task<IActionResult> Create(CreateEnrollmentRequest request)
+    public async Task<IActionResult> EnrollStudent(
+        int courseId,
+        CreateEnrollmentRequest request,
+        CancellationToken ct)
     {
-        var record =
-            await _service.EnrollAsync(request.StudentId, request.CourseCode);
+        var success = await _service.EnrollStudentAsync(
+            courseId,
+            request,
+            ct);
 
-        return CreatedAtAction(
-            nameof(GetById),
-            new { id = record.Id },
-            record);
-    }
+        if (!success)
+        {
+            return BadRequest("Enrollment failed.");
+        }
 
-    [HttpDelete("{id}")]
-    public async Task<IActionResult> Delete(string id)
-    {
-        var deleted = await _service.DeleteAsync(id);
-
-        if (!deleted)
-            return NotFound();
-
-        return NoContent();
+        return Ok("Student enrolled successfully.");
     }
 }
-
-public record CreateEnrollmentRequest(
-    string StudentId,
-    string CourseCode);

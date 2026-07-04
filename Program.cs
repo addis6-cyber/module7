@@ -91,18 +91,19 @@ using TmsApi.Data;
 using TmsApi.Entities;
 //module 6
 using TmsApi.Repositories;
-
+//module 6 exercise 2
+using TmsApi.Services;
+using Microsoft.AspNetCore.Mvc;
 var builder = WebApplication.CreateBuilder(args);
 
 
-
-
 // Services
-builder.Services.AddSingleton<EnrollmentWorker>();
-
-builder.Services.AddScoped<IEnrollmentService, EnrollmentService>();
 //module 6
 builder.Services.AddScoped<IStudentRepository, StudentRepository>();
+//module 6 exercise 2
+builder.Services.AddScoped<ICourseService, CourseService>();
+//module 6 exercise 4
+builder.Services.AddScoped<IEnrollmentService, EnrollmentService>();
 
 builder.Host.UseDefaultServiceProvider(options =>
 {
@@ -187,9 +188,11 @@ app.MapGet("/api/assessments/results", () =>
 
 // Worker smoke test
 app.MapGet("/api/enrollments/worker-smoke",
-    (EnrollmentWorker worker) =>
+    (IServiceProvider provider) =>
 {
+    var worker = provider.GetRequiredService<EnrollmentWorker>();
     worker.ProcessBatch();
+
     return Results.Ok("Processed");
 });
 

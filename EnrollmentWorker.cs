@@ -15,7 +15,7 @@
 }*/
 //Exercise 1
 using Microsoft.Extensions.DependencyInjection;
-
+using TmsApi.Services;
 public class EnrollmentWorker
 {
     private readonly IServiceScopeFactory _scopeFactory;
