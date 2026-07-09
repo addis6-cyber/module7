@@ -2283,19 +2283,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tilah\\.nuget\\packages\\": {}
+    "C:\\Users\\CSUG\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tilah\\OneDrive\\Desktop\\modlue\\module6\\m6-lab-session2.csproj",
-      "projectName": "m6-lab-session2",
-      "projectPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\modlue\\module6\\m6-lab-session2.csproj",
-      "packagesPath": "C:\\Users\\tilah\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\modlue\\module6\\obj\\",
+      "projectUniqueName": "C:\\Users\\CSUG\\Desktop\\module\\module6\\m6-lab-session3.csproj",
+      "projectName": "m6-lab-session3",
+      "projectPath": "C:\\Users\\CSUG\\Desktop\\module\\module6\\m6-lab-session3.csproj",
+      "packagesPath": "C:\\Users\\CSUG\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\CSUG\\Desktop\\module\\module6\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\tilah\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\CSUG\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
@@ -2371,7 +2371,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.300/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.AspNetCore": "(,10.0.32767]",
           "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",

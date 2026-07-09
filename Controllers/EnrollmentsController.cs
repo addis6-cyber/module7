@@ -4,8 +4,12 @@ using TmsApi.Services;
 
 namespace TmsApi.Controllers;
 
+//[ApiController]
+//[Route("api/courses/{courseId}/enrollments")]
 [ApiController]
 [Route("api/courses/{courseId}/enrollments")]
+[Tags("Enrollments")]
+[Produces("application/json")]
 public class EnrollmentsController : ControllerBase
 {
     private readonly IEnrollmentService _service;
@@ -15,7 +19,11 @@ public class EnrollmentsController : ControllerBase
         _service = service;
     }
 
-    [HttpPost]
+[HttpPost]
+[EndpointSummary("Enroll a student into a course")]
+[EndpointDescription("Creates an enrollment for a student in the specified course.")]
+[ProducesResponseType(StatusCodes.Status200OK)]
+[ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> EnrollStudent(
         int courseId,
         CreateEnrollmentRequest request,
@@ -27,10 +35,18 @@ public class EnrollmentsController : ControllerBase
             ct);
 
         if (!success)
-        {
-            return BadRequest("Enrollment failed.");
-        }
+{
+    return BadRequest(new ProblemDetails
+    {
+        Title = "Enrollment failed",
+        Detail = "The student could not be enrolled. The course or student may not exist, or the student is already enrolled.",
+        Status = StatusCodes.Status400BadRequest
+    });
+}
 
-        return Ok("Student enrolled successfully.");
+return Ok(new
+{
+    Message = "Student enrolled successfully."
+});
     }
 }

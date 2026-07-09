@@ -6,7 +6,7 @@ public class CreateCourseRequest
 {
     [Required]
     [RegularExpression(
-        @"^[A-Z]{3}-\d{3}$",
+        @"^[A-Z]{2,3}-\d{3}$",
         ErrorMessage = "Code must be in the format ABC-123.")]
     public string Code { get; set; } = string.Empty;
 
