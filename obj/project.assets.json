@@ -2288,9 +2288,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tilah\\OneDrive\\Desktop\\modlue\\module6\\m6-lab-session1.csproj",
-      "projectName": "m6-lab-session1",
-      "projectPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\modlue\\module6\\m6-lab-session1.csproj",
+      "projectUniqueName": "C:\\Users\\tilah\\OneDrive\\Desktop\\modlue\\module6\\m6-lab-session2.csproj",
+      "projectName": "m6-lab-session2",
+      "projectPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\modlue\\module6\\m6-lab-session2.csproj",
       "packagesPath": "C:\\Users\\tilah\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\modlue\\module6\\obj\\",
       "projectStyle": "PackageReference",

@@ -62,4 +62,59 @@ public class CourseService : ICourseService
             .AsNoTracking()
             .AnyAsync(c => c.Code == code, ct);
     }
+    public async Task<PagedResponse<CourseResponseDto>> GetPagedAsync(
+    PagedRequest request,
+    CancellationToken ct)
+{
+    var query = _context.Courses.AsQueryable();
+
+    // Search
+    if (!string.IsNullOrWhiteSpace(request.Search))
+    {
+        query = query.Where(c =>
+            c.Title.Contains(request.Search) ||
+            c.Code.Contains(request.Search));
+    }
+
+    // Sorting
+    query = request.OrderBy?.ToLower() switch
+{
+    "code" => request.Descending
+        ? query.OrderByDescending(c => c.Code)
+        : query.OrderBy(c => c.Code),
+
+    "capacity" => request.Descending
+        ? query.OrderByDescending(c => c.Capacity)
+        : query.OrderBy(c => c.Capacity),
+
+    _ => request.Descending
+        ? query.OrderByDescending(c => c.Title)
+        : query.OrderBy(c => c.Title)
+};
+
+    // Count total records
+    var totalCount = await query.CountAsync(ct);
+
+    // Get one page
+    var items = await query
+        .Skip((request.Page - 1) * request.PageSize)
+        .Take(request.PageSize)
+        .Select(c => new CourseResponseDto
+        {
+            Id = c.Id,
+            Code = c.Code,
+            Title = c.Title,
+            MaxCapacity = c.Capacity,
+            EnrollmentCount = c.Enrollments.Count()
+        })
+        .ToListAsync(ct);
+
+    return new PagedResponse<CourseResponseDto>
+    {
+        Items = items,
+        TotalCount = totalCount,
+        Page = request.Page,
+        PageSize = request.PageSize
+    };
+}
 }

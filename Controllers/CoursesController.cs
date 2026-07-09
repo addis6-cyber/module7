@@ -57,4 +57,15 @@ public class CoursesController : ControllerBase
         new { id = result.Id },
         result);
 }
+    //module 6 session 2
+    // Get all courses with pagination
+[HttpGet]
+public async Task<IActionResult> GetCourses(
+    [FromQuery] PagedRequest request,
+    CancellationToken ct)
+{
+    var result = await _courseService.GetPagedAsync(request, ct);
+
+    return Ok(result);
+}
 }
