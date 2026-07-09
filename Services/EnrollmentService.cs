@@ -50,10 +50,24 @@ public class EnrollmentService : IEnrollmentService
             EnrolledAt = DateTime.UtcNow
         };
 
-        _context.Enrollments.Add(enrollment);
+        using var transaction =
+    await _context.Database.BeginTransactionAsync(ct);
 
-        await _context.SaveChangesAsync(ct);
+try
+{
+    _context.Enrollments.Add(enrollment);
 
-        return true;
-    }
+    await _context.SaveChangesAsync(ct);
+
+    await transaction.CommitAsync(ct);
+
+    return true;
+}
+catch
+{
+    await transaction.RollbackAsync(ct);
+
+    return false;
+}
+}
 }

@@ -98,6 +98,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 // Services
+builder.Services.AddSingleton<EnrollmentWorker>();
 //module 6
 builder.Services.AddScoped<IStudentRepository, StudentRepository>();
 //module 6 exercise 2

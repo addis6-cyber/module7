@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HslwIgPrdG8=",
+  "dgSpecHash": "NoASEUEodlo=",
   "success": true,
-  "projectFilePath": "C:\\Users\\tilah\\OneDrive\\Desktop\\module2\\module6\\m6-lab-session1.csproj",
+  "projectFilePath": "C:\\Users\\tilah\\OneDrive\\Desktop\\modlue\\module6\\m6-lab-session1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tilah\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\tilah\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.9\\microsoft.aspnetcore.openapi.10.0.9.nupkg.sha512",
@@ -40,9 +40,9 @@
       "code": "NU1903",
       "level": "Warning",
       "message": "Package 'Microsoft.OpenApi' 2.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc",
-      "projectPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\module2\\module6\\m6-lab-session1.csproj",
+      "projectPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\modlue\\module6\\m6-lab-session1.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\Users\\tilah\\OneDrive\\Desktop\\module2\\module6\\m6-lab-session1.csproj",
+      "filePath": "C:\\Users\\tilah\\OneDrive\\Desktop\\modlue\\module6\\m6-lab-session1.csproj",
       "libraryId": "Microsoft.OpenApi",
       "targetGraphs": [
         "net10.0"

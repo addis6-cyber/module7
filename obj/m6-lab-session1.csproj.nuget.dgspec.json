@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tilah\\OneDrive\\Desktop\\module2\\module6\\m6-lab-session1.csproj": {}
+    "C:\\Users\\tilah\\OneDrive\\Desktop\\modlue\\module6\\m6-lab-session1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tilah\\OneDrive\\Desktop\\module2\\module6\\m6-lab-session1.csproj": {
+    "C:\\Users\\tilah\\OneDrive\\Desktop\\modlue\\module6\\m6-lab-session1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tilah\\OneDrive\\Desktop\\module2\\module6\\m6-lab-session1.csproj",
+        "projectUniqueName": "C:\\Users\\tilah\\OneDrive\\Desktop\\modlue\\module6\\m6-lab-session1.csproj",
         "projectName": "m6-lab-session1",
-        "projectPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\module2\\module6\\m6-lab-session1.csproj",
+        "projectPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\modlue\\module6\\m6-lab-session1.csproj",
         "packagesPath": "C:\\Users\\tilah\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\module2\\module6\\obj\\",
+        "outputPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\modlue\\module6\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\tilah\\AppData\\Roaming\\NuGet\\NuGet.Config"
