@@ -94,6 +94,9 @@ using TmsApi.Repositories;
 //module 6 exercise 2
 using TmsApi.Services;
 using Microsoft.AspNetCore.Mvc;
+//module7
+using Asp.Versioning;
+
 var builder = WebApplication.CreateBuilder(args);
 
 
@@ -137,6 +140,15 @@ builder.Services
 
 // M4 Session 3
 builder.Services.AddControllers();
+builder.Services.AddApiVersioning(options =>
+{
+    options.DefaultApiVersion = new ApiVersion(1, 0);
+
+    options.AssumeDefaultVersionWhenUnspecified = true;
+
+    options.ReportApiVersions = true;
+});
+
 builder.Services.AddProblemDetails();
 builder.Services.AddOpenApi();
 
