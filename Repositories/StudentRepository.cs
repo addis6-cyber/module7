@@ -1,5 +1,5 @@
 using TmsApi.Data;
-using TmsApi.Entities;
+using TmsApi.Domain.Entities;
 
 namespace TmsApi.Repositories;
 

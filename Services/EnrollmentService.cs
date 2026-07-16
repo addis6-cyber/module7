@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using TmsApi.Data;
 using TmsApi.Dtos;
-using TmsApi.Entities;
+using TmsApi.Domain.Entities;
 
 namespace TmsApi.Services;
 

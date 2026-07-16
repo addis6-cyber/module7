@@ -1,94 +1,9 @@
-/*var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-
-builder.Services.AddControllers();
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.Run();*/
-
-//Exercise 1A
-//m4-lab-session2
-/*using Microsoft.AspNetCore.Authentication;
-
-
-
-var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddSingleton<EnrollmentWorker>();
-
-builder.Services.AddScoped<IEnrollmentService, EnrollmentService>();
-
-builder.Host.UseDefaultServiceProvider(options =>
-{
-    options.ValidateScopes = true;
-    options.ValidateOnBuild = true;
-});
-
-
-builder.Services
-    .AddAuthentication("Training")
-    .AddScheme<AuthenticationSchemeOptions,
-        TrainingAuthHandler>("Training", null);
-
-builder.Services.AddAuthorization();
-
-//M4 SESSION 2 EX3
-builder.Services
-    .AddOptions<PaymentOptions>()
-    .BindConfiguration("Payments")
-    .ValidateDataAnnotations()
-    .ValidateOnStart();
-var app = builder.Build();
-
-
-// Exercise 1B
-app.UseMiddleware<RequestLoggingMiddleware>();
-
-//app.UseExceptionHandler();
-
-app.UseHttpsRedirection();
-
-app.UseAuthentication();
-
-app.UseAuthorization();
-
-app.MapGet("/api/assessments/results", () =>
-{
-    return Results.Ok(new
-    {
-        courseCode = "CS-101",
-        studentId = "S-001",
-        letterGrade = "A"
-    });
-})
-.RequireAuthorization();
-
-
-//To test the worker
-app.MapGet("/api/enrollments/worker-smoke",
-    (EnrollmentWorker worker) =>
-{
-    worker.ProcessBatch();
-    return Results.Ok("Processed");
-});
-
-app.Run();*/
 
 using Microsoft.AspNetCore.Authentication;
 using Scalar.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using TmsApi.Data;
-using TmsApi.Entities;
+using TmsApi.Domain.Entities;
 //module 6
 using TmsApi.Repositories;
 //module 6 exercise 2

@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using TmsApi.Entities;
+using TmsApi.Domain.Entities;
 namespace TmsApi.Data;
 
 public class TmsDbContext(DbContextOptions<TmsDbContext> options) : DbContext(options)

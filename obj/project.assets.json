@@ -744,6 +744,42 @@
         "build": {
           "buildTransitive/net8.0/_._": {}
         }
+      },
+      "TmsApi.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "TmsApi.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/TmsApi.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TmsApi.Application.dll": {}
+        }
+      },
+      "TmsApi.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/TmsApi.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TmsApi.Domain.dll": {}
+        }
+      },
+      "TmsApi.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "TmsApi.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/TmsApi.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TmsApi.Infrastructure.dll": {}
+        }
       }
     }
   },
@@ -2371,6 +2407,21 @@
         "system.composition.typedparts.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "TmsApi.Application/1.0.0": {
+      "type": "project",
+      "path": "TmsApi.Application/TmsApi.Application.csproj",
+      "msbuildProject": "TmsApi.Application/TmsApi.Application.csproj"
+    },
+    "TmsApi.Domain/1.0.0": {
+      "type": "project",
+      "path": "TmsApi.Domain/TmsApi.Domain.csproj",
+      "msbuildProject": "TmsApi.Domain/TmsApi.Domain.csproj"
+    },
+    "TmsApi.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "TmsApi.Infrastructure/TmsApi.Infrastructure.csproj",
+      "msbuildProject": "TmsApi.Infrastructure/TmsApi.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -2380,35 +2431,50 @@
       "Microsoft.EntityFrameworkCore.Design >= 10.0.9",
       "Microsoft.EntityFrameworkCore.Tools >= 10.0.9",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 10.0.2",
-      "Scalar.AspNetCore >= 2.16.2"
+      "Scalar.AspNetCore >= 2.16.2",
+      "TmsApi.Application >= 1.0.0",
+      "TmsApi.Domain >= 1.0.0",
+      "TmsApi.Infrastructure >= 1.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tilah\\.nuget\\packages\\": {}
+    "C:\\Users\\CSUG\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tilah\\OneDrive\\Desktop\\module2\\module6\\m7-lab-session1.csproj",
-      "projectName": "m7-lab-session1",
-      "projectPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\module2\\module6\\m7-lab-session1.csproj",
-      "packagesPath": "C:\\Users\\tilah\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\module2\\module6\\obj\\",
+      "projectUniqueName": "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Api.csproj",
+      "projectName": "TmsApi.Api",
+      "projectPath": "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Api.csproj",
+      "packagesPath": "C:\\Users\\CSUG\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\CSUG\\Desktop\\module\\module7\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\tilah\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\CSUG\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net10.0": {
           "framework": "net10.0",
           "targetAlias": "net10.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Application\\TmsApi.Application.csproj": {
+              "projectPath": "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Application\\TmsApi.Application.csproj"
+            },
+            "c:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj": {
+              "projectPath": "c:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj"
+            },
+            "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Infrastructure\\TmsApi.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Infrastructure\\TmsApi.Infrastructure.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

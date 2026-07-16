@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TmsApi.Data;
 using TmsApi.Models;
-using TmsApi.Entities;
+using TmsApi.Domain.Entities;
 
 // Module 6
 using TmsApi.Repositories;
