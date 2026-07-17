@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using TmsApi.Domain.Entities;
-namespace TmsApi.Data;
+namespace TmsApi.Infrastructure.Data;
 
 public class TmsDbContext(DbContextOptions<TmsDbContext> options) : DbContext(options)
 {

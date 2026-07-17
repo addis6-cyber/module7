@@ -1,7 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace TmsApi.Dtos;
-
+namespace TmsApi.Application.Dtos;
 public class CreateCourseRequest
 {
     [Required]

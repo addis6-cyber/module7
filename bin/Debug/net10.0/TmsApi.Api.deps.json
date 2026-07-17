@@ -560,6 +560,9 @@
       },
       "TmsApi.Infrastructure/1.0.0": {
         "dependencies": {
+          "Microsoft.EntityFrameworkCore": "10.0.9",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "10.0.2",
+          "TmsApi.Application": "1.0.0",
           "TmsApi.Domain": "1.0.0"
         },
         "runtime": {

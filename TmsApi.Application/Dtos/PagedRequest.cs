@@ -1,6 +1,5 @@
 
-namespace TmsApi.Dtos;
-
+namespace TmsApi.Application.Dtos;
 public class PagedRequest
 {
     public const int MaxPageSize = 50;

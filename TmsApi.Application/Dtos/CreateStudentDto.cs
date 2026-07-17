@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace TmsApi.Models;
+namespace TmsApi.Application.Dtos;
 
 public class CreateStudentDto
 {

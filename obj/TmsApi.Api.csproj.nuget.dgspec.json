@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Api.csproj": {}
+    "C:\\Users\\tilah\\OneDrive\\Desktop\\module3\\module7\\TmsApi.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Api.csproj": {
+    "C:\\Users\\tilah\\OneDrive\\Desktop\\module3\\module7\\TmsApi.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Api.csproj",
+        "projectUniqueName": "C:\\Users\\tilah\\OneDrive\\Desktop\\module3\\module7\\TmsApi.Api.csproj",
         "projectName": "TmsApi.Api",
-        "projectPath": "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Api.csproj",
-        "packagesPath": "C:\\Users\\CSUG\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\CSUG\\Desktop\\module\\module7\\obj\\",
+        "projectPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\module3\\module7\\TmsApi.Api.csproj",
+        "packagesPath": "C:\\Users\\tilah\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\module3\\module7\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\CSUG\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\tilah\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -29,14 +27,14 @@
             "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Application\\TmsApi.Application.csproj": {
-                "projectPath": "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Application\\TmsApi.Application.csproj"
+              "C:\\Users\\tilah\\OneDrive\\Desktop\\module3\\module7\\TmsApi.Application\\TmsApi.Application.csproj": {
+                "projectPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\module3\\module7\\TmsApi.Application\\TmsApi.Application.csproj"
               },
-              "c:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj": {
-                "projectPath": "c:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj"
+              "C:\\Users\\tilah\\OneDrive\\Desktop\\module3\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj": {
+                "projectPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\module3\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj"
               },
-              "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Infrastructure\\TmsApi.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Infrastructure\\TmsApi.Infrastructure.csproj"
+              "C:\\Users\\tilah\\OneDrive\\Desktop\\module3\\module7\\TmsApi.Infrastructure\\TmsApi.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\module3\\module7\\TmsApi.Infrastructure\\TmsApi.Infrastructure.csproj"
               }
             }
           }
@@ -524,24 +522,22 @@
         }
       }
     },
-    "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Application\\TmsApi.Application.csproj": {
+    "C:\\Users\\tilah\\OneDrive\\Desktop\\module3\\module7\\TmsApi.Application\\TmsApi.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Application\\TmsApi.Application.csproj",
+        "projectUniqueName": "C:\\Users\\tilah\\OneDrive\\Desktop\\module3\\module7\\TmsApi.Application\\TmsApi.Application.csproj",
         "projectName": "TmsApi.Application",
-        "projectPath": "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Application\\TmsApi.Application.csproj",
-        "packagesPath": "C:\\Users\\CSUG\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Application\\obj\\",
+        "projectPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\module3\\module7\\TmsApi.Application\\TmsApi.Application.csproj",
+        "packagesPath": "C:\\Users\\tilah\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\module3\\module7\\TmsApi.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\CSUG\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\tilah\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -549,8 +545,8 @@
             "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "c:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj": {
-                "projectPath": "c:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj"
+              "C:\\Users\\tilah\\OneDrive\\Desktop\\module3\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj": {
+                "projectPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\module3\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj"
               }
             }
           }
@@ -865,24 +861,22 @@
         }
       }
     },
-    "c:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj": {
+    "C:\\Users\\tilah\\OneDrive\\Desktop\\module3\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\tilah\\OneDrive\\Desktop\\module3\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj",
         "projectName": "TmsApi.Domain",
-        "projectPath": "c:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj",
-        "packagesPath": "C:\\Users\\CSUG\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Domain\\obj\\",
+        "projectPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\module3\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj",
+        "packagesPath": "C:\\Users\\tilah\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\module3\\module7\\TmsApi.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\CSUG\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\tilah\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -1202,24 +1196,22 @@
         }
       }
     },
-    "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Infrastructure\\TmsApi.Infrastructure.csproj": {
+    "C:\\Users\\tilah\\OneDrive\\Desktop\\module3\\module7\\TmsApi.Infrastructure\\TmsApi.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Infrastructure\\TmsApi.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\tilah\\OneDrive\\Desktop\\module3\\module7\\TmsApi.Infrastructure\\TmsApi.Infrastructure.csproj",
         "projectName": "TmsApi.Infrastructure",
-        "projectPath": "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Infrastructure\\TmsApi.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\CSUG\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\module3\\module7\\TmsApi.Infrastructure\\TmsApi.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\tilah\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\module3\\module7\\TmsApi.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\CSUG\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\tilah\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -1227,8 +1219,11 @@
             "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "c:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj": {
-                "projectPath": "c:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj"
+              "C:\\Users\\tilah\\OneDrive\\Desktop\\module3\\module7\\TmsApi.Application\\TmsApi.Application.csproj": {
+                "projectPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\module3\\module7\\TmsApi.Application\\TmsApi.Application.csproj"
+              },
+              "C:\\Users\\tilah\\OneDrive\\Desktop\\module3\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj": {
+                "projectPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\module3\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj"
               }
             }
           }
@@ -1249,6 +1244,16 @@
         "net10.0": {
           "framework": "net10.0",
           "targetAlias": "net10.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[10.0.9, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[10.0.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

@@ -2,6 +2,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TmsApi.Domain\TmsApi.Domain.csproj" />
+    <ProjectReference Include="..\TmsApi.Application\TmsApi.Application.csproj" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.9" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="10.0.2" />
   </ItemGroup>
 
   <PropertyGroup>

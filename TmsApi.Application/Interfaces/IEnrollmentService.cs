@@ -1,9 +1,8 @@
 //module6 exercise4
 // Create the Enrollment Service Interface
-using TmsApi.Dtos;
+using TmsApi.Application.Dtos;
 
-namespace TmsApi.Services;
-
+namespace TmsApi.Application.Interfaces;
 public interface IEnrollmentService
 {
     Task<bool> EnrollStudentAsync(

@@ -1,5 +1,4 @@
-namespace TmsApi.Dtos;
-
+namespace TmsApi.Application.Dtos;
 public class CourseResponseDto
 {
     public int Id { get; set; }

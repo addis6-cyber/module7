@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using TmsApi.Data;
+using TmsApi.Infrastructure.Data;
 using TmsApi.Domain.Entities;
 
 

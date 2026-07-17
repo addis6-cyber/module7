@@ -2,27 +2,31 @@
 using Microsoft.AspNetCore.Authentication;
 using Scalar.AspNetCore;
 using Microsoft.EntityFrameworkCore;
-using TmsApi.Data;
+using TmsApi.Infrastructure.Data;
 using TmsApi.Domain.Entities;
 //module 6
-using TmsApi.Repositories;
+using TmsApi.Infrastructure.Repositories;
 //module 6 exercise 2
-using TmsApi.Services;
+using TmsApi.Infrastructure.Services;
+using TmsApi.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 //module7
 using Asp.Versioning;
-
+//module7session0
+using TmsApi.Infrastructure.DependencyInjection;
 var builder = WebApplication.CreateBuilder(args);
 
 
 // Services
 builder.Services.AddSingleton<EnrollmentWorker>();
 //module 6
-builder.Services.AddScoped<IStudentRepository, StudentRepository>();
+//builder.Services.AddScoped<IStudentRepository, StudentRepository>();
 //module 6 exercise 2
-builder.Services.AddScoped<ICourseService, CourseService>();
+//builder.Services.AddScoped<ICourseService, CourseService>();
 //module 6 exercise 4
-builder.Services.AddScoped<IEnrollmentService, EnrollmentService>();
+//builder.Services.AddScoped<IEnrollmentService, EnrollmentService>();
+//module 7 session 0
+builder.Services.AddInfrastructure(builder.Configuration);
 
 builder.Host.UseDefaultServiceProvider(options =>
 {
@@ -36,12 +40,13 @@ builder.Services
         "Training", null);
 
 
+
 //builder.Services.AddDbContext<TmsDbContext>(options =>options.UseNpgsql(builder.Configuration.GetConnectionString("TmsDatabase")));
-builder.Services.AddDbContext<TmsDbContext>(options =>
+/*builder.Services.AddDbContext<TmsDbContext>(options =>
     options.UseNpgsql(
         builder.Configuration.GetConnectionString("TmsDatabase"))
     .LogTo(Console.WriteLine, LogLevel.Information)
-    .EnableSensitiveDataLogging());
+    .EnableSensitiveDataLogging());*/
 
 
 builder.Services.AddAuthorization();

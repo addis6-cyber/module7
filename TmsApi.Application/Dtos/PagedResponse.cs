@@ -1,5 +1,4 @@
-namespace TmsApi.Dtos;
-
+namespace TmsApi.Application.Dtos;
 public class PagedResponse<T>
 {
     public IEnumerable<T> Items { get; set; } = [];
