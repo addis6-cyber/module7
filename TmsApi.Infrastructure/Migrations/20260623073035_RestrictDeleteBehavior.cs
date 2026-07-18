@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace m4_lab_session3.Migrations
+namespace TmsApi.Infrastructure.Migrations
 {
     /// <inheritdoc />
     public partial class RestrictDeleteBehavior : Migration

@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using TmsApi.Domain.Entities;
-
+//namespace TmsApi.Infrastructure.SeedData;
 namespace TmsApi.Infrastructure.Data;
 
 public static class DataSeeder

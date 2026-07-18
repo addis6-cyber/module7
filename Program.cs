@@ -3,13 +3,13 @@ using Microsoft.AspNetCore.Authentication;
 using Scalar.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using TmsApi.Infrastructure.Data;
-using TmsApi.Domain.Entities;
+//using TmsApi.Domain.Entities;
 //module 6
-using TmsApi.Infrastructure.Repositories;
+//using TmsApi.Infrastructure.Repositories;
 //module 6 exercise 2
-using TmsApi.Infrastructure.Services;
-using TmsApi.Application.Interfaces;
-using Microsoft.AspNetCore.Mvc;
+//using TmsApi.Infrastructure.Services;
+//using TmsApi.Application.Interfaces;
+//using Microsoft.AspNetCore.Mvc;
 //module7
 using Asp.Versioning;
 //module7session0
@@ -19,13 +19,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Services
 builder.Services.AddSingleton<EnrollmentWorker>();
-//module 6
-//builder.Services.AddScoped<IStudentRepository, StudentRepository>();
-//module 6 exercise 2
-//builder.Services.AddScoped<ICourseService, CourseService>();
-//module 6 exercise 4
-//builder.Services.AddScoped<IEnrollmentService, EnrollmentService>();
-//module 7 session 0
+
 builder.Services.AddInfrastructure(builder.Configuration);
 
 builder.Host.UseDefaultServiceProvider(options =>
@@ -39,14 +33,6 @@ builder.Services
     .AddScheme<AuthenticationSchemeOptions, TrainingAuthHandler>(
         "Training", null);
 
-
-
-//builder.Services.AddDbContext<TmsDbContext>(options =>options.UseNpgsql(builder.Configuration.GetConnectionString("TmsDatabase")));
-/*builder.Services.AddDbContext<TmsDbContext>(options =>
-    options.UseNpgsql(
-        builder.Configuration.GetConnectionString("TmsDatabase"))
-    .LogTo(Console.WriteLine, LogLevel.Information)
-    .EnableSensitiveDataLogging());*/
 
 
 builder.Services.AddAuthorization();
@@ -138,8 +124,21 @@ app.MapGet("/api/error", () =>
     throw new Exception("Simulated database failure");
 });
 
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider
+        .GetRequiredService<TmsDbContext>();
 
-//Get the Database Context
+    await DataSeeder.SeedAsync(context);
+}
+
+app.Run();
+
+
+
+
+
+/*//Get the Database Context
 using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider
@@ -258,4 +257,4 @@ context.SaveChanges();
 }
 
 
-app.Run();
+app.Run();*/

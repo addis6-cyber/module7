@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tilah\\OneDrive\\Desktop\\module3\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\tilah\\OneDrive\\Desktop\\modu\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj",
       "projectName": "TmsApi.Domain",
-      "projectPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\module3\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj",
+      "projectPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\modu\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj",
       "packagesPath": "C:\\Users\\tilah\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\module3\\module7\\TmsApi.Domain\\obj\\",
+      "outputPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\modu\\module7\\TmsApi.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\tilah\\AppData\\Roaming\\NuGet\\NuGet.Config"

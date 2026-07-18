@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace m4_lab_session3.Migrations
+namespace TmsApi.Infrastructure.Migrations
 {
     /// <inheritdoc />
     public partial class AddLastUpdatedShadowProperty : Migration
