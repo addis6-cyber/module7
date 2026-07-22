@@ -6,6 +6,11 @@ using TmsApi.Infrastructure.Data;
 using Asp.Versioning;
 //module7session0
 using TmsApi.Infrastructure.DependencyInjection;
+using MediatR;
+using FluentValidation;
+using TmsApi.Application.Behaviors;
+using TmsApi.Exceptions;
+
 var builder = WebApplication.CreateBuilder(args);
 
 
@@ -46,7 +51,21 @@ builder.Services.AddApiVersioning(options =>
     options.ReportApiVersions = true;
 });
 
+builder.Services.AddMediatR(cfg =>
+{
+    cfg.RegisterServicesFromAssembly(
+        typeof(TmsApi.Application.Interfaces.ICourseService).Assembly);
+
+    cfg.AddOpenBehavior(typeof(ValidationBehavior<,>));
+    cfg.AddOpenBehavior(typeof(LoggingBehavior<,>));
+});
+
+builder.Services.AddValidatorsFromAssembly(
+    typeof(TmsApi.Application.Courses.Commands.CreateCourseCommandValidator).Assembly);
+
 builder.Services.AddProblemDetails();
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+
 builder.Services.AddOpenApi();
 
 var app = builder.Build();

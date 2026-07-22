@@ -1,7 +1,9 @@
 //module 6 exercise 2
 using Microsoft.AspNetCore.Mvc;
 using TmsApi.Application.Dtos;
-using TmsApi.Application.Interfaces;
+using MediatR;
+using TmsApi.Application.Courses.Commands;
+using TmsApi.Application.Courses.Queries;
 
 namespace TmsApi.Controllers;
 
@@ -13,12 +15,12 @@ namespace TmsApi.Controllers;
 [Produces("application/json")]
 public class CoursesController : ControllerBase
 {
-    private readonly ICourseService _courseService;
-
-    public CoursesController(ICourseService courseService)
-    {
-        _courseService = courseService;
-    }
+    
+    private readonly IMediator _mediator;
+   public CoursesController(IMediator mediator)
+{
+    _mediator = mediator;
+}
 
     // Get a single course by Id
     //[HttpGet("{id:int}", Name = nameof(GetCourseById))]
@@ -31,14 +33,14 @@ public class CoursesController : ControllerBase
         int id,
         CancellationToken ct)
     {
-        var course = await _courseService.GetByIdAsync(id, ct);
+        var course = await _mediator.Send(new GetCourseByIdQuery(id),ct);
 
-        if (course == null)
-        {
-            return NotFound();
-        }
+    if (course == null)
+    {
+        return NotFound();
+    }
 
-        return Ok(course);
+    return Ok(course);
     }
 
     // Create a new course
@@ -49,24 +51,16 @@ public class CoursesController : ControllerBase
 [ProducesResponseType(typeof(CourseResponseDto), StatusCodes.Status201Created)]
 [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
 [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status409Conflict)]
+public async Task<IActionResult> CreateCourse(
+    CreateCourseRequest request,
+    CancellationToken ct)
+{
+    var command = new CreateCourseCommand(
+        request.Code,
+        request.Title,
+        request.MaxCapacity);
 
-    public async Task<IActionResult> CreateCourse(
-        CreateCourseRequest request,
-        CancellationToken ct)
-    {
-         // Check whether the course code already exists
-    if (await _courseService.CodeExistsAsync(request.Code, ct))
-    {
-        return Conflict(new ProblemDetails
-        {
-            //module 6 exercise 3
-            Title = "Course code already exists",
-            Detail = $"A course with code '{request.Code}' already exists.",
-            Status = StatusCodes.Status409Conflict
-        });
-    }
-
-    var result = await _courseService.CreateAsync(request, ct);
+    var result = await _mediator.Send(command, ct);
 
     return CreatedAtAction(
         nameof(GetCourseById),
@@ -75,7 +69,7 @@ public class CoursesController : ControllerBase
 }
     //module 6 session 2
     // Get all courses with pagination
-[HttpGet]
+
 [HttpGet]
 [EndpointSummary("Get paged courses")]
 [EndpointDescription("Returns a paginated list of courses with optional searching and sorting.")]
@@ -85,7 +79,9 @@ public async Task<IActionResult> GetCourses(
     [FromQuery] PagedRequest request,
     CancellationToken ct)
 {
-    var result = await _courseService.GetPagedAsync(request, ct);
+    var result = await _mediator.Send(
+        new GetCoursesQuery(request),
+        ct);
 
     return Ok(result);
 }
