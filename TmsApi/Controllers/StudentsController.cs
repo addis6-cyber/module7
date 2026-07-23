@@ -3,9 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using TmsApi.Infrastructure.Data;
 using TmsApi.Application.Dtos;
 using TmsApi.Domain.Entities;
-
 // Module 6
 using TmsApi.Application.Interfaces;
+using MediatR;
+using TmsApi.Application.Students.Queries;
+
 
 namespace TmsApi.Controllers;
 
@@ -14,23 +16,28 @@ namespace TmsApi.Controllers;
 public class StudentsController : ControllerBase
 {
     private readonly TmsDbContext _context;
-    private readonly IStudentRepository _repository;
-
-    public StudentsController(
-        TmsDbContext context,
-        IStudentRepository repository)
+    //private readonly IStudentRepository _repository;
+    private readonly IMediator _mediator;
+    public StudentsController(TmsDbContext context, IMediator mediator)
     {
         _context = context;
-        _repository = repository;
+        _mediator = mediator;
     }
 
-    [HttpGet]
-    public IActionResult GetStudents()
-    {
-        var students = _repository.GetAll();
+   [HttpGet("{id:int}")]
+public async Task<IActionResult> GetStudentById(
+    int id,
+    CancellationToken cancellationToken)
+{
+    var result = await _mediator.Send(
+        new GetStudentByIdQuery(id),
+        cancellationToken);
 
-        return Ok(students);
-    }
+    if (result == null)
+        return NotFound();
+
+    return Ok(result);
+}
 
     //Filter Data
     [HttpGet("active")]

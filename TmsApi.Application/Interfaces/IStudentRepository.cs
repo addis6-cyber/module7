@@ -1,13 +1,6 @@
 /*using TmsApi.Domain.Entities;
 
 namespace TmsApi.Application.Interfaces;
-public interface IStudentRepository
-{
-    List<Student> GetAll();
-}*/
-using TmsApi.Domain.Entities;
-
-namespace TmsApi.Application.Interfaces;
 
 public interface IStudentRepository
 {
@@ -22,4 +15,14 @@ public interface IStudentRepository
     void Add(Student student);
 
     void SaveChanges();
+}*/
+using TmsApi.Application.Dtos;
+
+namespace TmsApi.Application.Interfaces;
+
+public interface IStudentRepository
+{
+    Task<StudentResponseDto?> GetByIdAsync(
+        int id,
+        CancellationToken cancellationToken);
 }
