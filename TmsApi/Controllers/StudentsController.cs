@@ -1,13 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TmsApi.Infrastructure.Data;
-using TmsApi.Application.Dtos;
-using TmsApi.Domain.Entities;
+//using TmsApi.Application.Dtos;
+//using TmsApi.Domain.Entities;
 // Module 6
 using TmsApi.Application.Interfaces;
 using MediatR;
 using TmsApi.Application.Students.Queries;
-
+using TmsApi.Application.Students.Commands;
 
 namespace TmsApi.Controllers;
 
@@ -16,7 +16,7 @@ namespace TmsApi.Controllers;
 public class StudentsController : ControllerBase
 {
     private readonly TmsDbContext _context;
-    //private readonly IStudentRepository _repository;
+    
     private readonly IMediator _mediator;
     public StudentsController(TmsDbContext context, IMediator mediator)
     {
@@ -176,24 +176,16 @@ public async Task<IActionResult> GetStudentById(
         return Ok(student);
     }
 
-    [HttpPost]
-    public IActionResult CreateStudent(CreateStudentDto dto)
-    {
-        var student = new Student
-        {
-            RegistrationNumber = dto.RegistrationNumber,
-            Name = dto.Name,
-            GPA = dto.GPA,
-            IsActive = dto.IsActive
-        };
+   [HttpPost]
+public async Task<IActionResult> CreateStudent(
+    CreateStudentCommand command,
+    CancellationToken cancellationToken)
+{
+    var student = await _mediator.Send(command, cancellationToken);
 
-        _context.Students.Add(student);
-        // Try to save
-        _context.SaveChanges();
-
-        return CreatedAtAction(
-            nameof(GetStudent),
-            new { registrationNumber = student.RegistrationNumber },
-            student);
-    }
+    return CreatedAtAction(
+        nameof(GetStudentById),
+        new { id = student.Id },
+        student);
+}
 }

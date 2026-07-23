@@ -2729,24 +2729,31 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tilah\\.nuget\\packages\\": {}
+    "C:\\Users\\CSUG\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tilah\\OneDrive\\Desktop\\module\\module7\\TmsApi\\TmsApi.Api.csproj",
+      "projectUniqueName": "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi\\TmsApi.Api.csproj",
       "projectName": "TmsApi.Api",
-      "projectPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\module\\module7\\TmsApi\\TmsApi.Api.csproj",
-      "packagesPath": "C:\\Users\\tilah\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\module\\module7\\TmsApi\\obj\\",
+      "projectPath": "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi\\TmsApi.Api.csproj",
+      "packagesPath": "C:\\Users\\CSUG\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\tilah\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\CSUG\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -2754,14 +2761,14 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Users\\tilah\\OneDrive\\Desktop\\module\\module7\\TmsApi.Application\\TmsApi.Application.csproj": {
-              "projectPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\module\\module7\\TmsApi.Application\\TmsApi.Application.csproj"
+            "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Application\\TmsApi.Application.csproj": {
+              "projectPath": "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Application\\TmsApi.Application.csproj"
             },
-            "C:\\Users\\tilah\\OneDrive\\Desktop\\module\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj": {
-              "projectPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\module\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj"
+            "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj": {
+              "projectPath": "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj"
             },
-            "C:\\Users\\tilah\\OneDrive\\Desktop\\module\\module7\\TmsApi.Infrastructure\\TmsApi.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\module\\module7\\TmsApi.Infrastructure\\TmsApi.Infrastructure.csproj"
+            "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Infrastructure\\TmsApi.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Infrastructure\\TmsApi.Infrastructure.csproj"
             }
           }
         }
@@ -3255,10 +3262,14 @@
   },
   "logs": [
     {
-      "code": "NU1900",
+      "code": "NU1903",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json."
+      "message": "Package 'Microsoft.OpenApi' 2.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc",
+      "libraryId": "Microsoft.OpenApi",
+      "targetGraphs": [
+        "net10.0"
+      ]
     }
   ]
 }

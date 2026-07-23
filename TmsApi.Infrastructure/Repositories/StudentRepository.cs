@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using TmsApi.Application.Dtos;
 using TmsApi.Application.Interfaces;
 using TmsApi.Infrastructure.Data;
+using TmsApi.Domain.Entities;
 
 namespace TmsApi.Infrastructure.Repositories;
 
@@ -30,4 +31,12 @@ public class StudentRepository : IStudentRepository
         })
         .FirstOrDefaultAsync(cancellationToken);
 }
+     public async Task AddAsync(
+    Student student,
+    CancellationToken cancellationToken)
+{
+    await _context.Students.AddAsync(student, cancellationToken);
+    await _context.SaveChangesAsync(cancellationToken);
+}
+
 }
