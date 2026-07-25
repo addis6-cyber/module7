@@ -3,40 +3,55 @@ using TmsApi.Application.Dtos;
 using TmsApi.Application.Interfaces;
 using TmsApi.Infrastructure.Data;
 using TmsApi.Domain.Entities;
+using Microsoft.Extensions.Caching.Hybrid;
+using TmsApi.Application.Common;
+
 
 namespace TmsApi.Infrastructure.Repositories;
 
 public class StudentRepository : IStudentRepository
 {
     private readonly TmsDbContext _context;
+    private readonly HybridCache _cache;
 
-    public StudentRepository(TmsDbContext context)
-    {
-        _context = context;
-    }
+    public StudentRepository(TmsDbContext context, HybridCache cache)
+{
+    _context = context;
+    _cache = cache;
+}
 
    public async Task<StudentResponseDto?> GetByIdAsync(
     int id,
     CancellationToken cancellationToken)
 {
-    return await _context.Students
-        .Where(s => s.Id == id)
-        .Select(s => new StudentResponseDto
+    return await _cache.GetOrCreateAsync(
+        CacheKeys.Student(id),
+        async token =>
         {
-            Id = s.Id,
-            RegistrationNumber = s.RegistrationNumber,
-            Name = s.Name,
-            GPA = s.GPA,
-            IsActive = s.IsActive
-        })
-        .FirstOrDefaultAsync(cancellationToken);
+            return await _context.Students
+                .Where(s => s.Id == id)
+                .Select(s => new StudentResponseDto
+                {
+                    Id = s.Id,
+                    RegistrationNumber = s.RegistrationNumber,
+                    Name = s.Name,
+                    GPA = s.GPA,
+                    IsActive = s.IsActive
+                })
+                .FirstOrDefaultAsync(token);
+        },
+        cancellationToken: cancellationToken);
 }
-     public async Task AddAsync(
+    public async Task AddAsync(
     Student student,
     CancellationToken cancellationToken)
 {
     await _context.Students.AddAsync(student, cancellationToken);
     await _context.SaveChangesAsync(cancellationToken);
+
+    await _cache.RemoveAsync(
+        CacheKeys.Student(student.Id),
+        cancellationToken);
 }
 
 }

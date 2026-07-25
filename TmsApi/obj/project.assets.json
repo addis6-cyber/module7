@@ -561,6 +561,22 @@
           "lib/net10.0/_._": {}
         }
       },
+      "Microsoft.Extensions.Caching.Hybrid/10.8.0": {
+        "type": "package",
+        "compile": {
+          "lib/net10.0/Microsoft.Extensions.Caching.Hybrid.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.Caching.Hybrid.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
+        }
+      },
       "Microsoft.Extensions.DependencyModel/10.0.9": {
         "type": "package",
         "compile": {
@@ -2251,6 +2267,33 @@
         "tools/net8.0/any/ef.runtimeconfig.json"
       ]
     },
+    "Microsoft.Extensions.Caching.Hybrid/10.8.0": {
+      "sha512": "RCtCTK3eqKXx8LXqd7B8GjbTkIp4k3EgKeunaCmBJ+WA55Nva83CI2I+wVyp0S9jTG+aT6AYWQbkKOfvFOlmLA==",
+      "type": "package",
+      "path": "microsoft.extensions.caching.hybrid/10.8.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "README.md",
+        "buildTransitive/net462/Microsoft.Extensions.Caching.Hybrid.targets",
+        "buildTransitive/net8.0/_._",
+        "lib/net10.0/Microsoft.Extensions.Caching.Hybrid.dll",
+        "lib/net10.0/Microsoft.Extensions.Caching.Hybrid.xml",
+        "lib/net462/Microsoft.Extensions.Caching.Hybrid.dll",
+        "lib/net462/Microsoft.Extensions.Caching.Hybrid.xml",
+        "lib/net8.0/Microsoft.Extensions.Caching.Hybrid.dll",
+        "lib/net8.0/Microsoft.Extensions.Caching.Hybrid.xml",
+        "lib/net9.0/Microsoft.Extensions.Caching.Hybrid.dll",
+        "lib/net9.0/Microsoft.Extensions.Caching.Hybrid.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Caching.Hybrid.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Caching.Hybrid.xml",
+        "lib/netstandard2.1/Microsoft.Extensions.Caching.Hybrid.dll",
+        "lib/netstandard2.1/Microsoft.Extensions.Caching.Hybrid.xml",
+        "microsoft.extensions.caching.hybrid.10.8.0.nupkg.sha512",
+        "microsoft.extensions.caching.hybrid.nuspec"
+      ]
+    },
     "Microsoft.Extensions.DependencyModel/10.0.9": {
       "sha512": "SCDTQ6HubnRvTUjR7dgMKHZvNoCb03t44ttHL8trlFTGgfDteWn/0nRdOxDhcI+lTWhKgd/flCVJEtAOPhSLNg==",
       "type": "package",
@@ -2721,6 +2764,7 @@
       "Microsoft.AspNetCore.OpenApi >= 10.0.9",
       "Microsoft.EntityFrameworkCore.Design >= 10.0.9",
       "Microsoft.EntityFrameworkCore.Tools >= 10.0.9",
+      "Microsoft.Extensions.Caching.Hybrid >= 10.8.0",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 10.0.2",
       "Scalar.AspNetCore >= 2.16.2",
       "TmsApi.Application >= 1.0.0",
@@ -2729,31 +2773,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\CSUG\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\tilah\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi\\TmsApi.Api.csproj",
+      "projectUniqueName": "C:\\Users\\tilah\\OneDrive\\Desktop\\New folder (5)\\module7\\TmsApi\\TmsApi.Api.csproj",
       "projectName": "TmsApi.Api",
-      "projectPath": "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi\\TmsApi.Api.csproj",
-      "packagesPath": "C:\\Users\\CSUG\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi\\obj\\",
+      "projectPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\New folder (5)\\module7\\TmsApi\\TmsApi.Api.csproj",
+      "packagesPath": "C:\\Users\\tilah\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\New folder (5)\\module7\\TmsApi\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\CSUG\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\tilah\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -2761,14 +2798,14 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Application\\TmsApi.Application.csproj": {
-              "projectPath": "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Application\\TmsApi.Application.csproj"
+            "C:\\Users\\tilah\\OneDrive\\Desktop\\New folder (5)\\module7\\TmsApi.Application\\TmsApi.Application.csproj": {
+              "projectPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\New folder (5)\\module7\\TmsApi.Application\\TmsApi.Application.csproj"
             },
-            "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj": {
-              "projectPath": "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj"
+            "C:\\Users\\tilah\\OneDrive\\Desktop\\New folder (5)\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj": {
+              "projectPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\New folder (5)\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj"
             },
-            "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Infrastructure\\TmsApi.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\CSUG\\Desktop\\module\\module7\\TmsApi.Infrastructure\\TmsApi.Infrastructure.csproj"
+            "C:\\Users\\tilah\\OneDrive\\Desktop\\New folder (5)\\module7\\TmsApi.Infrastructure\\TmsApi.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\New folder (5)\\module7\\TmsApi.Infrastructure\\TmsApi.Infrastructure.csproj"
             }
           }
         }
@@ -2813,6 +2850,10 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "[10.0.9, )"
+          },
+          "Microsoft.Extensions.Caching.Hybrid": {
+            "target": "Package",
+            "version": "[10.8.0, )"
           },
           "Npgsql.EntityFrameworkCore.PostgreSQL": {
             "target": "Package",

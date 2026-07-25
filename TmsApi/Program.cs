@@ -65,7 +65,7 @@ builder.Services.AddValidatorsFromAssembly(
 
 builder.Services.AddProblemDetails();
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
-
+builder.Services.AddHybridCache();
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
