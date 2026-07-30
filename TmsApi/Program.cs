@@ -15,6 +15,15 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 // Services
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngular", policy =>
+        policy.WithOrigins("http://localhost:4200")
+              .AllowAnyHeader()
+              .AllowAnyMethod());
+});
+
+
 builder.Services.AddSingleton<EnrollmentWorker>();
 
 builder.Services.AddInfrastructure(builder.Configuration);
@@ -89,6 +98,8 @@ app.UseExceptionHandler();
 app.UseStatusCodePages();
 
 app.UseHttpsRedirection();
+
+app.UseCors("AllowAngular");
 
 app.UseAuthentication();
 
