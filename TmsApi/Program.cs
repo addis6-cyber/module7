@@ -151,6 +151,39 @@ using (var scope = app.Services.CreateScope())
     await DataSeeder.SeedAsync(context);
 }
 
+
+app.MapGet("/api/enrollments", () =>
+{
+    return Results.Ok(new[]
+    {
+        new
+        {
+            id = "1",
+            studentId = 1001,
+            studentName = "Liya Kebede",
+            courseId = 1,
+            courseName = "Introduction to Programming",
+            status = "Pending",
+            enrolledAt = DateTime.UtcNow.ToString("o")
+        },
+        new
+        {
+            id = "2",
+            studentId = 1002,
+            studentName = "Dawit Bekele",
+            courseId = 2,
+            courseName = "Database Systems",
+            status = "Approved",
+            enrolledAt = DateTime.UtcNow.ToString("o")
+        }
+    });
+});
+
+app.MapPost("/api/enrollments/{id}/approve", (string id) =>
+{
+    Console.WriteLine($"Approved enrollment {id}");
+    return Results.NoContent();
+});
 app.Run();
 
 
