@@ -8,19 +8,19 @@
     "net10.0": []
   },
   "packageFolders": {
-    "C:\\Users\\CSUG\\.nuget\\packages\\": {}
+    "C:\\Users\\tilah\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\CSUG\\Desktop\\backend\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\tilah\\OneDrive\\Desktop\\backend\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj",
       "projectName": "TmsApi.Domain",
-      "projectPath": "C:\\Users\\CSUG\\Desktop\\backend\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj",
-      "packagesPath": "C:\\Users\\CSUG\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\CSUG\\Desktop\\backend\\module7\\TmsApi.Domain\\obj\\",
+      "projectPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\backend\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj",
+      "packagesPath": "C:\\Users\\tilah\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\backend\\module7\\TmsApi.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\CSUG\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\tilah\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
@@ -67,7 +67,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.300/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",

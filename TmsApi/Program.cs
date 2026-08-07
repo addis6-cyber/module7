@@ -11,6 +11,12 @@ using FluentValidation;
 using TmsApi.Application.Behaviors;
 using TmsApi.Exceptions;
 
+using System.Threading.Channels;
+using TmsApi.Application.Transcripts;
+using TmsApi.Infrastructure.Transcripts;
+using TmsApi.Infrastructure.Workers;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 
@@ -76,6 +82,14 @@ builder.Services.AddProblemDetails();
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 builder.Services.AddHybridCache();
 builder.Services.AddOpenApi();
+
+builder.Services.AddSingleton(
+    Channel.CreateUnbounded<TranscriptJobRequest>());
+
+builder.Services.AddSingleton<ITranscriptStatusStore, InMemoryTranscriptStatusStore>();
+
+builder.Services.AddHostedService<TranscriptWorker>();
+
 
 var app = builder.Build();
 
