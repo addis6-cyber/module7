@@ -26,7 +26,8 @@ public sealed class TranscriptWorker : BackgroundService
         _logger = logger;
     }
 
-    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+    protected override async Task ExecuteAsync(
+        CancellationToken stoppingToken)
     {
         await foreach (var job in _reader.ReadAllAsync(stoppingToken))
         {
@@ -41,11 +42,16 @@ public sealed class TranscriptWorker : BackgroundService
             {
                 using var scope = _scopeFactory.CreateScope();
 
-                await Task.Delay(TimeSpan.FromSeconds(5), stoppingToken);
+                await Task.Delay(
+                    TimeSpan.FromSeconds(5),
+                    stoppingToken);
 
-                var fileName = $"transcript-{job.StudentId}.pdf";
+                var fileName =
+                    $"transcript-{job.StudentId}.pdf";
 
-                _statusStore.MarkCompleted(job.JobId, fileName);
+                _statusStore.MarkCompleted(
+                    job.JobId,
+                    fileName);
 
                 _logger.LogInformation(
                     "Transcript worker completed job {JobId}",
@@ -57,7 +63,9 @@ public sealed class TranscriptWorker : BackgroundService
                     "Transcript worker canceled job {JobId}",
                     job.JobId);
 
-                _statusStore.MarkFailed(job.JobId, "Canceled");
+                _statusStore.MarkFailed(
+                    job.JobId,
+                    "Canceled");
             }
             catch (Exception ex)
             {
@@ -66,7 +74,9 @@ public sealed class TranscriptWorker : BackgroundService
                     "Transcript worker failed job {JobId}",
                     job.JobId);
 
-                _statusStore.MarkFailed(job.JobId, ex.Message);
+                _statusStore.MarkFailed(
+                    job.JobId,
+                    ex.Message);
             }
         }
     }

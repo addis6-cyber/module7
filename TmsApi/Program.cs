@@ -15,7 +15,7 @@ using System.Threading.Channels;
 using TmsApi.Application.Transcripts;
 using TmsApi.Infrastructure.Transcripts;
 using TmsApi.Infrastructure.Workers;
-
+using TmsApi.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -90,6 +90,7 @@ builder.Services.AddSingleton<ITranscriptStatusStore, InMemoryTranscriptStatusSt
 
 builder.Services.AddHostedService<TranscriptWorker>();
 
+builder.Services.AddSignalR();
 
 var app = builder.Build();
 
@@ -122,7 +123,7 @@ app.UseAuthorization();
 // Controllers
 app.MapControllers();
 
-
+app.MapHub<NotificationsHub>("/hubs/notifications");
 
 // Existing endpoint
 app.MapGet("/api/assessments/results", () =>
