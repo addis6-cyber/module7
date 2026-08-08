@@ -16,7 +16,7 @@ using TmsApi.Application.Transcripts;
 using TmsApi.Infrastructure.Transcripts;
 using TmsApi.Infrastructure.Workers;
 using TmsApi.Hubs;
-
+using TmsApi.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 
@@ -91,6 +91,9 @@ builder.Services.AddSingleton<ITranscriptStatusStore, InMemoryTranscriptStatusSt
 builder.Services.AddHostedService<TranscriptWorker>();
 
 builder.Services.AddSignalR();
+
+builder.Services.AddSingleton<ITranscriptNotificationPublisher,
+    SignalRTranscriptNotificationPublisher>();
 
 var app = builder.Build();
 

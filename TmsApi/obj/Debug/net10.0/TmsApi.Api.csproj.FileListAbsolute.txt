@@ -1264,3 +1264,5 @@ C:\Users\tilah\OneDrive\Desktop\backend\module7\TmsApi\obj\Debug\net10.0\refint\
 C:\Users\tilah\OneDrive\Desktop\backend\module7\TmsApi\obj\Debug\net10.0\TmsApi.Api.pdb
 C:\Users\tilah\OneDrive\Desktop\backend\module7\TmsApi\obj\Debug\net10.0\TmsApi.Api.genruntimeconfig.cache
 C:\Users\tilah\OneDrive\Desktop\backend\module7\TmsApi\obj\Debug\net10.0\ref\TmsApi.Api.dll
+C:\Users\tilah\OneDrive\Desktop\backend\module7\TmsApi\bin\Debug\net10.0\signalr-test\package-lock.json
+C:\Users\tilah\OneDrive\Desktop\backend\module7\TmsApi\bin\Debug\net10.0\signalr-test\package.json

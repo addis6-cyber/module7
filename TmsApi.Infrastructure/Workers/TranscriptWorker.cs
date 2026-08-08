@@ -9,21 +9,24 @@ namespace TmsApi.Infrastructure.Workers;
 
 public sealed class TranscriptWorker : BackgroundService
 {
+    
     private readonly ChannelReader<TranscriptJobRequest> _reader;
     private readonly IServiceScopeFactory _scopeFactory;
     private readonly ITranscriptStatusStore _statusStore;
     private readonly ILogger<TranscriptWorker> _logger;
-
+    private readonly ITranscriptNotificationPublisher _publisher;
     public TranscriptWorker(
-        Channel<TranscriptJobRequest> channel,
-        IServiceScopeFactory scopeFactory,
-        ITranscriptStatusStore statusStore,
-        ILogger<TranscriptWorker> logger)
+    Channel<TranscriptJobRequest> channel,
+    IServiceScopeFactory scopeFactory,
+    ITranscriptStatusStore statusStore,
+    ITranscriptNotificationPublisher publisher,
+    ILogger<TranscriptWorker> logger)
     {
         _reader = channel.Reader;
         _scopeFactory = scopeFactory;
         _statusStore = statusStore;
         _logger = logger;
+        _publisher = publisher;
     }
 
     protected override async Task ExecuteAsync(
@@ -49,9 +52,13 @@ public sealed class TranscriptWorker : BackgroundService
                 var fileName =
                     $"transcript-{job.StudentId}.pdf";
 
-                _statusStore.MarkCompleted(
-                    job.JobId,
-                    fileName);
+                _statusStore.MarkCompleted(job.JobId, fileName);
+
+                await _publisher.PublishCompletedAsync(
+                                    job.JobId,
+                                    job.StudentId,
+                                    fileName,
+                                    stoppingToken);
 
                 _logger.LogInformation(
                     "Transcript worker completed job {JobId}",
