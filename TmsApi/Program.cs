@@ -170,6 +170,16 @@ using (var scope = app.Services.CreateScope())
 }
 
 
+app.MapPost("/api/grades", async (object payload) =>
+{
+    await Task.Delay(3000);
+
+    return Results.Ok(new
+    {
+        id = Guid.NewGuid().ToString("N")[..8],
+        success = true
+    });
+});
 
 app.Run();
 
