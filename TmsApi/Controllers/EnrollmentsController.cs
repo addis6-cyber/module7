@@ -3,6 +3,9 @@ using TmsApi.Application.Dtos;
 using TmsApi.Application.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using TmsApi.Infrastructure.Data;
+using Microsoft.AspNetCore.SignalR;
+using TmsApi.Hubs;
+
 namespace TmsApi.Controllers;
 
 //[ApiController]
@@ -15,12 +18,14 @@ public class EnrollmentsController : ControllerBase
 {
     private readonly IEnrollmentService _service;
     private readonly TmsDbContext _db;
+    private readonly IHubContext<EnrollmentHub> _hub;
     public EnrollmentsController(
     IEnrollmentService service,
-    TmsDbContext db)
+    TmsDbContext db, IHubContext<EnrollmentHub> hub)
     {
         _service = service;
         _db = db;
+        _hub = hub;
     }
 
     [HttpPost]
@@ -92,6 +97,14 @@ public class EnrollmentsController : ControllerBase
 
         enrollment.Grade = 0;
         await _db.SaveChangesAsync(ct);
+
+    await _hub.Clients.All.SendAsync(
+    "EnrollmentApproved",
+    new
+    {
+        id = enrollment.Id
+    },
+    ct);
 
         return NoContent();
     }

@@ -17,6 +17,7 @@ using TmsApi.Infrastructure.Transcripts;
 using TmsApi.Infrastructure.Workers;
 using TmsApi.Hubs;
 using TmsApi.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 
@@ -26,7 +27,8 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowAngular", policy =>
         policy.WithOrigins("http://localhost:4200")
               .AllowAnyHeader()
-              .AllowAnyMethod());
+              .AllowAnyMethod()
+              .AllowCredentials());
 });
 
 
@@ -95,6 +97,7 @@ builder.Services.AddSignalR();
 builder.Services.AddSingleton<ITranscriptNotificationPublisher,
     SignalRTranscriptNotificationPublisher>();
 
+
 var app = builder.Build();
 
 
@@ -125,6 +128,8 @@ app.UseAuthorization();
 
 // Controllers
 app.MapControllers();
+
+app.MapHub<EnrollmentHub>("/hubs/enrollments");
 
 app.MapHub<NotificationsHub>("/hubs/notifications");
 
