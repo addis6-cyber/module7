@@ -17,7 +17,7 @@ using TmsApi.Infrastructure.Transcripts;
 using TmsApi.Infrastructure.Workers;
 using TmsApi.Hubs;
 using TmsApi.Services;
-
+using Microsoft.AspNetCore.Antiforgery;
 var builder = WebApplication.CreateBuilder(args);
 
 
@@ -106,8 +106,26 @@ builder.Services.AddSingleton<ITranscriptNotificationPublisher,
     SignalRTranscriptNotificationPublisher>();
 
 
+builder.Services.AddAntiforgery(options =>
+{
+    options.Cookie.Name = "XSRF-TOKEN";
+    options.HeaderName = "X-XSRF-TOKEN";
+});
+
+
+
 var app = builder.Build();
 
+app.MapGet("/api/{version:apiVersion}/auth/xsrf",
+    (HttpContext ctx, IAntiforgery antiforgery) =>
+{
+    var tokens = antiforgery.GetAndStoreTokens(ctx);
+
+    return Results.Ok(new
+    {
+        token = tokens.RequestToken
+    });
+});
 
 
 // Development only
