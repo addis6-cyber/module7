@@ -18,6 +18,7 @@ using TmsApi.Infrastructure.Workers;
 using TmsApi.Hubs;
 using TmsApi.Services;
 using Microsoft.AspNetCore.Antiforgery;
+
 var builder = WebApplication.CreateBuilder(args);
 
 
@@ -116,16 +117,7 @@ builder.Services.AddAntiforgery(options =>
 
 var app = builder.Build();
 
-app.MapGet("/api/{version:apiVersion}/auth/xsrf",
-    (HttpContext ctx, IAntiforgery antiforgery) =>
-{
-    var tokens = antiforgery.GetAndStoreTokens(ctx);
 
-    return Results.Ok(new
-    {
-        token = tokens.RequestToken
-    });
-});
 
 
 // Development only
@@ -213,8 +205,18 @@ app.MapPost("/api/grades", async (object payload) =>
     });
 });
 
-app.Run();
+app.MapGet("/api/v1/auth/xsrf",
+    (HttpContext ctx, IAntiforgery antiforgery) =>
+{
+    var tokens = antiforgery.GetAndStoreTokens(ctx);
 
+    return Results.Ok(new
+    {
+        token = tokens.RequestToken
+    });
+});
+
+app.Run();
 
 
 

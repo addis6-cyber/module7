@@ -51,4 +51,12 @@ public IActionResult GetCurrentUser()
 
     return Unauthorized();
 }
+
+[HttpPost("logout")]
+public IActionResult Logout()
+{
+    Response.Cookies.Delete("tms_auth");
+
+    return NoContent();
+}
 }
