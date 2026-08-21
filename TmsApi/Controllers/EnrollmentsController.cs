@@ -108,4 +108,31 @@ public class EnrollmentsController : ControllerBase
 
         return NoContent();
     }
+
+
+[HttpDelete("/api/enrollments/{id}")]
+public async Task<IActionResult> DeleteEnrollment(
+    int id,
+    CancellationToken ct)
+{
+    var enrollment = await _db.Enrollments
+        .FirstOrDefaultAsync(e => e.Id == id, ct);
+
+    if (enrollment is null)
+    {
+        return NotFound(new ProblemDetails
+        {
+            Title = "Enrollment not found",
+            Detail = $"Enrollment with id {id} was not found.",
+            Status = StatusCodes.Status404NotFound
+        });
+    }
+
+    _db.Enrollments.Remove(enrollment);
+
+    await _db.SaveChangesAsync(ct);
+
+    return NoContent();
+}
+
 }
