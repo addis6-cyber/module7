@@ -148,8 +148,9 @@ app.UseAuthorization();
 // Controllers
 app.MapControllers();
 
-app.MapHub<EnrollmentHub>("/hubs/enrollments");
-
+app.MapHub<EnrollmentHub>("/hubs/enrollments")
+        .RequireCors("TmsClient");
+        
 app.MapHub<NotificationsHub>("/hubs/notifications");
 
 // Existing endpoint
