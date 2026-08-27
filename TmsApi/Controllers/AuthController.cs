@@ -5,7 +5,8 @@ using TmsApi.Domain.Users;
 namespace TmsApi.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/v1/auth")]
+//[Route("api/[controller]")]
 public class AuthController : ControllerBase
 {
     private readonly UserManager<TmsUser> _userManager;
