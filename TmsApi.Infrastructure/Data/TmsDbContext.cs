@@ -1,21 +1,31 @@
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using TmsApi.Domain.Entities;
+using TmsApi.Domain.Users;
+
 namespace TmsApi.Infrastructure.Data;
 
-public class TmsDbContext(DbContextOptions<TmsDbContext> options) : DbContext(options)
+public class TmsDbContext : IdentityDbContext<TmsUser>
 {
-public DbSet<Student> Students => Set<Student>();
-public DbSet<Course> Courses => Set<Course>();
-public DbSet<Enrollment> Enrollments => Set<Enrollment>();
-
- protected override void OnModelCreating(ModelBuilder modelBuilder)
+    public TmsDbContext(DbContextOptions<TmsDbContext> options)
+        : base(options)
     {
-        modelBuilder.ApplyConfigurationsFromAssembly(typeof(TmsDbContext).Assembly);
+    }
 
-         base.OnModelCreating(modelBuilder);
+    public DbSet<Student> Students => Set<Student>();
 
-        //Exercise 9-Part B Global Query Filter (Soft Delete)
-         modelBuilder.Entity<Student>()
+    public DbSet<Course> Courses => Set<Course>();
+
+    public DbSet<Enrollment> Enrollments => Set<Enrollment>();
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        modelBuilder.ApplyConfigurationsFromAssembly(
+            typeof(TmsDbContext).Assembly);
+
+        modelBuilder.Entity<Student>()
             .HasQueryFilter(s => s.IsActive);
     }
 }

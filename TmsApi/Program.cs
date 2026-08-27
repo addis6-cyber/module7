@@ -18,6 +18,10 @@ using TmsApi.Infrastructure.Workers;
 using TmsApi.Hubs;
 using TmsApi.Services;
 using Microsoft.AspNetCore.Antiforgery;
+using Microsoft.AspNetCore.Identity;
+using TmsApi.Domain.Users;
+using TmsApi.Infrastructure.Data;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -44,6 +48,23 @@ builder.Services.AddCors(options =>
 builder.Services.AddSingleton<EnrollmentWorker>();
 
 builder.Services.AddInfrastructure(builder.Configuration);
+
+builder.Services
+    .AddIdentityCore<TmsUser>(options =>
+    {
+        options.Password.RequiredLength = 12;
+        options.Password.RequireUppercase = true;
+        options.Password.RequireDigit = true;
+        options.Password.RequireNonAlphanumeric = true;
+
+        options.Lockout.MaxFailedAccessAttempts = 5;
+        options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(15);
+        options.Lockout.AllowedForNewUsers = true;
+    })
+    .AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<TmsDbContext>();
+
+
 
 builder.Host.UseDefaultServiceProvider(options =>
 {
