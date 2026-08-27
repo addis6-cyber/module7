@@ -1,6 +1,10 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using TmsApi.Domain.Entities;
 using TmsApi.Domain.Users;
+using TmsApi.Infrastructure.Data;
+using TmsApi.Infrastructure.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace TmsApi.Controllers;
 
@@ -12,13 +16,21 @@ public class AuthController : ControllerBase
     private readonly UserManager<TmsUser> _userManager;
     private readonly RoleManager<IdentityRole> _roleManager;
 
-    public AuthController(
-        UserManager<TmsUser> userManager,
-        RoleManager<IdentityRole> roleManager)
-    {
-        _userManager = userManager;
-        _roleManager = roleManager;
-    }
+    private readonly TokenService _tokenService;
+
+    private readonly TmsDbContext _context;
+
+   public AuthController(
+    UserManager<TmsUser> userManager,
+    RoleManager<IdentityRole> roleManager,
+    TokenService tokenService,
+    TmsDbContext context)
+{
+    _userManager = userManager;
+    _roleManager = roleManager;
+    _tokenService = tokenService;
+    _context = context;
+}
 
     public record RegisterRequest(
         string Email,
@@ -126,12 +138,113 @@ public class AuthController : ControllerBase
 
         await _userManager.ResetAccessFailedCountAsync(user);
 
-        return Ok(new
+    var roles = await _userManager.GetRolesAsync(user);
+
+var accessToken = _tokenService.GenerateJwt(
+    user,
+    roles);
+
+var refreshToken = new RefreshToken
+{
+    Token = Guid.NewGuid().ToString("N"),
+    UserId = user.Id,
+    ExpiresAt = DateTime.UtcNow.AddDays(7),
+    IsUsed = false,
+    IsRevoked = false
+};
+
+_context.RefreshTokens.Add(refreshToken);
+
+await _context.SaveChangesAsync();
+
+return Ok(new
+{
+    accessToken,
+    refreshToken = refreshToken.Token
+});
+    }
+
+
+   public record RefreshRequest(string RefreshToken);
+
+[HttpPost("refresh")]
+public async Task<IActionResult> Refresh(
+    [FromBody] RefreshRequest request)
+{
+    var storedToken = await _context.RefreshTokens
+        .FirstOrDefaultAsync(x => x.Token == request.RefreshToken);
+
+    if (storedToken == null)
+    {
+        return Unauthorized(new
         {
-            userId = user.Id,
-            email = user.Email,
-            firstName = user.FirstName,
-            lastName = user.LastName
+            detail = "Invalid refresh token."
         });
     }
+
+    if (storedToken.IsUsed)
+    {
+        var userTokens = await _context.RefreshTokens
+            .Where(x => x.UserId == storedToken.UserId)
+            .ToListAsync();
+
+        foreach (var token in userTokens)
+        {
+            token.IsRevoked = true;
+        }
+
+        await _context.SaveChangesAsync();
+
+        return Unauthorized(new
+        {
+            detail = "Token theft detected. All user sessions revoked."
+        });
+    }
+
+    if (storedToken.IsRevoked ||
+        storedToken.ExpiresAt < DateTime.UtcNow)
+    {
+        return Unauthorized(new
+        {
+            detail = "Refresh token expired or revoked."
+        });
+    }
+
+    storedToken.IsUsed = true;
+
+    var newRefreshToken = new RefreshToken
+    {
+        Token = Guid.NewGuid().ToString("N"),
+        UserId = storedToken.UserId,
+        ExpiresAt = DateTime.UtcNow.AddDays(7),
+        IsUsed = false,
+        IsRevoked = false
+    };
+
+    _context.RefreshTokens.Add(newRefreshToken);
+
+    await _context.SaveChangesAsync();
+
+    var user = await _userManager.FindByIdAsync(
+        storedToken.UserId);
+
+    if (user == null)
+    {
+        return Unauthorized(new
+        {
+            detail = "User not found."
+        });
+    }
+
+    var roles = await _userManager.GetRolesAsync(user);
+
+    var newAccessToken =
+        _tokenService.GenerateJwt(user, roles);
+
+    return Ok(new
+    {
+        accessToken = newAccessToken,
+        refreshToken = newRefreshToken.Token
+    });
+} 
 }

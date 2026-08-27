@@ -1025,6 +1025,23 @@
           }
         }
       },
+      "System.IdentityModel.Tokens.Jwt/8.14.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.IdentityModel.JsonWebTokens": "8.14.0",
+          "Microsoft.IdentityModel.Tokens": "8.14.0"
+        },
+        "compile": {
+          "lib/net9.0/System.IdentityModel.Tokens.Jwt.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/System.IdentityModel.Tokens.Jwt.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "System.Net.WebSockets.WebSocketProtocol/5.1.0": {
         "type": "package",
         "compile": {
@@ -2311,6 +2328,30 @@
         "postgresql.png"
       ]
     },
+    "System.IdentityModel.Tokens.Jwt/8.14.0": {
+      "sha512": "EYGgN/S+HK7S6F3GaaPLFAfK0UzMrkXFyWCvXpQWFYmZln3dqtbyIO7VuTM/iIIPMzkelg8ZLlBPvMhxj6nOAA==",
+      "type": "package",
+      "path": "system.identitymodel.tokens.jwt/8.14.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net462/System.IdentityModel.Tokens.Jwt.dll",
+        "lib/net462/System.IdentityModel.Tokens.Jwt.xml",
+        "lib/net472/System.IdentityModel.Tokens.Jwt.dll",
+        "lib/net472/System.IdentityModel.Tokens.Jwt.xml",
+        "lib/net6.0/System.IdentityModel.Tokens.Jwt.dll",
+        "lib/net6.0/System.IdentityModel.Tokens.Jwt.xml",
+        "lib/net8.0/System.IdentityModel.Tokens.Jwt.dll",
+        "lib/net8.0/System.IdentityModel.Tokens.Jwt.xml",
+        "lib/net9.0/System.IdentityModel.Tokens.Jwt.dll",
+        "lib/net9.0/System.IdentityModel.Tokens.Jwt.xml",
+        "lib/netstandard2.0/System.IdentityModel.Tokens.Jwt.dll",
+        "lib/netstandard2.0/System.IdentityModel.Tokens.Jwt.xml",
+        "system.identitymodel.tokens.jwt.8.14.0.nupkg.sha512",
+        "system.identitymodel.tokens.jwt.nuspec"
+      ]
+    },
     "System.Net.WebSockets.WebSocketProtocol/5.1.0": {
       "sha512": "cVTT/Zw4JuUeX8H0tdWii0OMHsA5MY2PaFYOq/Hstw0jk479jZ+f8baCicWFNzJlCPWAe0uoNCELoB5eNmaMqA==",
       "type": "package",
@@ -2354,29 +2395,37 @@
       "Microsoft.Extensions.Hosting.Abstractions >= 10.0.0",
       "Microsoft.Extensions.Identity.Stores >= 10.0.11",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 10.0.2",
+      "System.IdentityModel.Tokens.Jwt >= 8.14.0",
       "TmsApi.Application >= 1.0.0",
       "TmsApi.Domain >= 1.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tilah\\.nuget\\packages\\": {}
+    "C:\\Users\\CSUG\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tilah\\OneDrive\\Desktop\\back\\module7\\TmsApi.Infrastructure\\TmsApi.Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\CSUG\\Desktop\\back\\module7\\TmsApi.Infrastructure\\TmsApi.Infrastructure.csproj",
       "projectName": "TmsApi.Infrastructure",
-      "projectPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\back\\module7\\TmsApi.Infrastructure\\TmsApi.Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\tilah\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\back\\module7\\TmsApi.Infrastructure\\obj\\",
+      "projectPath": "C:\\Users\\CSUG\\Desktop\\back\\module7\\TmsApi.Infrastructure\\TmsApi.Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\CSUG\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\CSUG\\Desktop\\back\\module7\\TmsApi.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\tilah\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\CSUG\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -2384,11 +2433,11 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Users\\tilah\\OneDrive\\Desktop\\back\\module7\\TmsApi.Application\\TmsApi.Application.csproj": {
-              "projectPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\back\\module7\\TmsApi.Application\\TmsApi.Application.csproj"
+            "C:\\Users\\CSUG\\Desktop\\back\\module7\\TmsApi.Application\\TmsApi.Application.csproj": {
+              "projectPath": "C:\\Users\\CSUG\\Desktop\\back\\module7\\TmsApi.Application\\TmsApi.Application.csproj"
             },
-            "C:\\Users\\tilah\\OneDrive\\Desktop\\back\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj": {
-              "projectPath": "C:\\Users\\tilah\\OneDrive\\Desktop\\back\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj"
+            "C:\\Users\\CSUG\\Desktop\\back\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj": {
+              "projectPath": "C:\\Users\\CSUG\\Desktop\\back\\module7\\TmsApi.Domain\\TmsApi.Domain.csproj"
             }
           }
         }
@@ -2437,6 +2486,10 @@
           "Npgsql.EntityFrameworkCore.PostgreSQL": {
             "target": "Package",
             "version": "[10.0.2, )"
+          },
+          "System.IdentityModel.Tokens.Jwt": {
+            "target": "Package",
+            "version": "[8.14.0, )"
           }
         },
         "imports": [
