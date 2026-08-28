@@ -1,4 +1,4 @@
-
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication;
 using Scalar.AspNetCore;
 using Microsoft.EntityFrameworkCore;
@@ -20,13 +20,12 @@ using TmsApi.Services;
 using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Identity;
 using TmsApi.Domain.Users;
-using TmsApi.Infrastructure.Data;
 
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using TmsApi.Infrastructure.Services;
-
+using TmsApi.Authorization;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -109,7 +108,20 @@ builder.Services
     });
 
 
-builder.Services.AddAuthorization();
+//builder.Services.AddAuthorization();
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("CanEditCourse", policy =>
+    {
+        policy.RequireAuthenticatedUser();
+        policy.AddRequirements(
+            new CourseInstructorRequirement());
+    });
+});
+
+builder.Services.AddSingleton<
+    IAuthorizationHandler,
+    CourseInstructorHandler>();
 
 // M4 Session 2 Exercise 3
 builder.Services

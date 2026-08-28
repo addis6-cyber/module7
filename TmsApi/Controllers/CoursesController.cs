@@ -4,11 +4,14 @@ using TmsApi.Application.Dtos;
 using MediatR;
 using TmsApi.Application.Courses.Commands;
 using TmsApi.Application.Courses.Queries;
+using Microsoft.AspNetCore.Authorization;
+using TmsApi.Infrastructure.Data;
 
 namespace TmsApi.Controllers;
 
 //[ApiController]
 //[Route("api/courses")]
+[Authorize(Roles = "Instructor,Admin")]
 [ApiController]
 [Route("api/courses")]
 [Tags("Courses")]
@@ -17,9 +20,18 @@ public class CoursesController : ControllerBase
 {
     
     private readonly IMediator _mediator;
-   public CoursesController(IMediator mediator)
+
+    private readonly IAuthorizationService _authorizationService;
+
+    private readonly TmsDbContext _context;
+ public CoursesController(
+    IMediator mediator,
+    IAuthorizationService authorizationService,
+    TmsDbContext context)
 {
     _mediator = mediator;
+    _authorizationService = authorizationService;
+    _context = context;
 }
 
     // Get a single course by Id
@@ -84,5 +96,34 @@ public async Task<IActionResult> GetCourses(
         ct);
 
     return Ok(result);
+}
+
+[HttpPut("{id:int}")]
+public async Task<IActionResult> UpdateCourse(
+    int id,
+    [FromBody] UpdateCourseDto dto)
+{
+    var course = await _context.Courses.FindAsync(id);
+
+    if (course == null)
+    {
+        return NotFound();
+    }
+
+    var authResult = await _authorizationService.AuthorizeAsync(
+        User,
+        course,
+        "CanEditCourse");
+
+    if (!authResult.Succeeded)
+    {
+        return Forbid();
+    }
+
+    course.Title = dto.Title;
+
+    await _context.SaveChangesAsync();
+
+    return NoContent();
 }
 }

@@ -52,5 +52,15 @@ public class TmsDbContext : IdentityDbContext<TmsUser>
     entity.Property(x => x.IsRevoked)
         .IsRequired();
 });
+
+    modelBuilder.Entity<Course>()
+    .Property(c => c.InstructorId)
+    .HasMaxLength(450);
+
+    modelBuilder.Entity<Course>()
+    .HasOne<TmsUser>()
+    .WithMany()
+    .HasForeignKey(c => c.InstructorId)
+    .OnDelete(DeleteBehavior.SetNull);
     }
 }
