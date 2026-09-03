@@ -162,7 +162,8 @@ await _context.SaveChangesAsync();
 return Ok(new
 {
     accessToken,
-    refreshToken = refreshToken.Token
+    refreshToken = refreshToken.Token,
+    role = roles.FirstOrDefault()
 });
     }
 
