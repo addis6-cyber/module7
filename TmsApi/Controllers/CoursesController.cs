@@ -11,7 +11,7 @@ namespace TmsApi.Controllers;
 
 //[ApiController]
 //[Route("api/courses")]
-[Authorize(Roles = "Instructor,Admin")]
+//[Authorize(Roles = "Instructor,Admin")]
 [ApiController]
 [Route("api/courses")]
 [Tags("Courses")]
@@ -57,6 +57,7 @@ public class CoursesController : ControllerBase
 
     // Create a new course
     //[HttpPost]
+[Authorize(Roles = "Instructor,Admin")]    
 [HttpPost]
 [EndpointSummary("Create a course")]
 [EndpointDescription("Creates a new course if the course code does not already exist.")]
@@ -98,6 +99,7 @@ public async Task<IActionResult> GetCourses(
     return Ok(result);
 }
 
+[Authorize(Roles = "Instructor,Admin")]
 [HttpPut("{id:int}")]
 public async Task<IActionResult> UpdateCourse(
     int id,
